@@ -1,0 +1,100 @@
+// https://github.com/devcontainers/images/tree/main/src/javascript-node
+{
+  "name": "driptimez-medusajs-devcontainer",
+  //"image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "build": {
+    "dockerfile": "Dockerfile.dev"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "waderyan.gitblame",
+        "shaharkazaz.git-merger",
+        "GitHub.vscode-pull-request-github",
+        "GitHub.remotehub",
+        "github.vscode-github-actions",
+        "shyykoserhiy.git-autoconfig",
+        "naumovs.color-highlight",
+        "vivaxy.vscode-conventional-commits",
+        "ms-vscode-remote.remote-containers",
+        "Continue.continue",
+        "usernamehw.errorlens",
+        "eliostruyf.vscode-front-matter",
+        "EditorConfig.EditorConfig",
+        "ynny.docker-host-exchanger",
+        "oderwat.indent-rainbow",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "moalamri.inline-fold",
+        "VisualStudioExptTeam.intellicode-api-usage-examples",
+        "VisualStudioExptTeam.vscodeintellicode-completions",
+        "Zignd.html-css-class-completion",
+        "firsttris.vscode-jest-runner",
+        "jevakallio.vscode-live-frame",
+        "ms-vscode.live-server",
+        "glenn2223.live-sass",
+        "nrwl.angular-console",
+        "christian-kohler.path-intellisense",
+        "ms-playwright.playwright",
+        "ms-ossdata.vscode-postgresql",
+        "zenclabs.previewjs",
+        "Prisma.prisma",
+        "AbianS.prisma-generate-uml",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode-remote.remote-ssh-edit",
+        "ms-vscode.remote-server",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "ms-vscode.remote-explorer",
+        "ms-vscode.remote-repositories",
+        "c0der-himel.remove-console-log",
+        "miku3920.vscode-render-special-chars",
+        "humao.rest-client",
+        "Glaider.glaider-secrets-sniper",
+        "imgildev.vscode-nextjs-generator",
+        "Gruntfuggly.todo-tree",
+        "redhat.vscode-yaml",
+        "Tobermory.es6-string-html",
+        "Postman.postman-for-vscode",
+        "cweijan.dbclient-jdbc"
+      ]
+    }
+  },
+  "mounts": [
+    {
+      "source": "/var/run/docker.sock",
+      "target": "/var/run/docker.sock",
+      "type": "bind"
+    }
+  ],
+  "features": {
+    "ghcr.io/devcontainers-extra/features/prettier:1": {},
+    "ghcr.io/devcontainers-extra/features/prisma:2": {},
+    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+    "ghcr.io/schlich/devcontainer-features/powerlevel10k:1": {},
+    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {},
+    "ghcr.io/devcontainers-extra/features/gh-cli:1": {},
+    "ghcr.io/devcontainers-extra/features/mkcert:1": {},
+    "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
+    "ghcr.io/devcontainers-extra/features/typescript:2": {},
+    "ghcr.io/itsmechlark/features/postgresql:1": {},
+    "ghcr.io/itsmechlark/features/redis-server:1": {},
+    "ghcr.io/frntn/devcontainers-features/postman:1": {}
+  },
+  "forwardPorts": [
+    80, // pgadmin
+    1025, // mailhog
+    5432, // postgres
+    3000, // nextjs
+    6379, // redis
+    8000, // medusajs
+    8025, // mailhog ui
+    7001, // medusajs
+    9000 // medusajs
+  ],
+  "onCreateCommand": "yarn install",
+  // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
+  "remoteUser": "node"
+}

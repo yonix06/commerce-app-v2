@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "driptimez"
+		},
+		{
+			"path": "driptimez-storefront"
+		}
+	],
+	"settings": {
+		"npm.packageManager": "yarn",
+		"frontMatter.git.enabled": true,
+		"git.enableSmartCommit": true,
+		"java.project.resourceFilters": [
+			"node_modules",
+			"\\.git",
+			".nx",
+			""
+		],
+		"files.autoSave": "afterDelay",
+		"scm.providerCountBadge": "auto",
+		"scm.alwaysShowRepositories": true,
+		"scm.alwaysShowActions": true
+	}
+}

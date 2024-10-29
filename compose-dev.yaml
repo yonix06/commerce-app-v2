@@ -1,0 +1,107 @@
+services:
+##driptimez-medusajs-devcontainer:
+##  entrypoint:
+##  - sleep
+##  - infinity
+##  image: mcr.microsoft.com/devcontainers/javascript-node:20
+##  init: true
+##  link: database
+##  volumes:
+##  - type: bind
+##    source: /var/run/docker.sock
+##    target: /var/run/docker.sock
+  database:
+    container_name: postgresql
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: api
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./devdata/postgresql:/var/lib/postgresql/data
+    # - ./devdata/postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - medusajs
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - '5052:80'
+    volumes:
+      - ./devdata/pgadmin:/var/lib/pgadmin
+    # - ./devdata/pgadmin/servers.json:/pgadmin4/servers.json
+    networks:
+      - medusajs
+  redis:
+    container_name: redis
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'
+      - '16379:16379'
+  # command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - ./devdata/redis:/data
+    networks:
+      - medusajs
+  mail:
+    container_name: mail
+    image: axllent/mailpit
+    restart: always
+    volumes:
+      - ./devdata/mailpit:/data
+    ports:
+      - 8025:8025
+      - 1025:1025
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    networks:
+      - medusajs
+##minio:
+##  container_name: minio
+##  image: minio/minio
+##  restart: always
+##  ports:
+##    - '9000:9000'
+##    - '9001:9001'
+##  command: minio server /data --console-address ":9001"
+##  volumes:
+##    - ./devdata/minio:/data
+##  environment:
+##    MINIO_ROOT_USER: root
+##    MINIO_ROOT_PASSWORD: root
+##  networks:
+##    - medusajs
+##createbuckets:
+##  image: minio/mc
+##  depends_on:
+networks:
+  medusajs:
+    external: false
+  # name: medusajs
+  # driver: bridge
+  # attachable: true
+  # ipam:
+  #   driver: default
+  #   config:
+  #     - subnet: 172.16.238.0/24
+  #       gateway: 172.16.238.1
+  #     - subnet: 2001:3984:3989::/64
+  #       gateway: 2001:3984:3989::1
+  # ipv6_enabled: true
+  # internal: true
+  # labels:
+  #   com.docker.compose.project: medusajs
+
+
+
