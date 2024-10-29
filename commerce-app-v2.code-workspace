@@ -23,6 +23,9 @@
 		"files.autoSave": "afterDelay",
 		"scm.providerCountBadge": "auto",
 		"scm.alwaysShowRepositories": true,
-		"scm.alwaysShowActions": true
+		"scm.alwaysShowActions": true,
+		"conventionalCommits.scopes": [
+			"Global"
+		]
 	}
 }
