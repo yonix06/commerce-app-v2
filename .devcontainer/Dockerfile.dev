@@ -10,15 +10,18 @@ RUN su node -c "umask 0002 && npm install -g ${NODE_MODULES}" \
 RUN curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
 RUN echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update
 
-# [Optional] Uncomment this section to install additional OS packages.
+# Install additional OS packages.
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install git openssh-client \
-    redis webdis pgadmin4-web \
+    redis webdis libpq5 libpq5-dev postgresql postgresql-common postgresql-client postgresql-client-common pgadmin4-web \
     && apt-get autoremove -y
 
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
 
-# [Optional] Uncomment if you want to install more global node packages
+# Enable Dev Services
+RUN systemctl enable redis-server postgresql mailpit
+
+# Install more global node packages
 RUN su node -c "npm install -g nx@latest"

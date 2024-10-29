@@ -58,7 +58,9 @@
         "redhat.vscode-yaml",
         "Tobermory.es6-string-html",
         "Postman.postman-for-vscode",
-        "cweijan.dbclient-jdbc"
+        "cweijan.dbclient-jdbc",
+        "ms-azuretools.vscode-docker",
+        "docker.docker-vscode-extension"
       ]
     }
   },
@@ -66,6 +68,26 @@
     {
       "source": "/var/run/docker.sock",
       "target": "/var/run/docker.sock",
+      "type": "bind"
+    },
+    {
+      "source": "./appdata/postgresql",
+      "target": "/var/lib/postgresql/data",
+      "type": "bind"
+    },
+    {
+      "source": "./appdata/redis",
+      "target": "/var/lib/redis",
+      "type": "bind"
+    },
+    {
+      "source": "./appdata/mailpit/lib/",
+      "target": "/var/lib/mailpit",
+      "type": "bind"
+    },
+    {
+      "source": "./appdata/mailpit/data/",
+      "target": "/usr/local/bin/mailpit",
       "type": "bind"
     }
   ],
@@ -79,22 +101,24 @@
     "ghcr.io/devcontainers-extra/features/mkcert:1": {},
     "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
     "ghcr.io/devcontainers-extra/features/typescript:2": {},
-    "ghcr.io/itsmechlark/features/postgresql:1": {},
-    "ghcr.io/itsmechlark/features/redis-server:1": {},
+    //"ghcr.io/itsmechlark/features/postgresql:1": {}, // Dans Dockerfile.dev
+    //"ghcr.io/itsmechlark/features/redis-server:1": {}, // Dans Dockerfile.dev
     "ghcr.io/frntn/devcontainers-features/postman:1": {}
   },
   "forwardPorts": [
-    80, // pgadmin
-    1025, // mailhog
+    80, // pgadmin4
+    1025, // mailpit
     5432, // postgres
     3000, // nextjs
     6379, // redis
-    8000, // medusajs
-    8025, // mailhog ui
-    7001, // medusajs
-    9000 // medusajs
+    8000, // medusajs storefront
+    8025, // mailpit ui
+    7001, // medusajs api
+    7379, // redis ui
+    9000 // medusajs backend+admin
   ],
-  "onCreateCommand": "yarn install",
-  // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
   "remoteUser": "node"
+  // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
+  // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
+  
 }

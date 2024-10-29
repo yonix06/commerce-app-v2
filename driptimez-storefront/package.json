@@ -13,7 +13,7 @@
     "start": "next start -p 8000",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
-    "test-e2e": "nx e2e e2e"
+    "test-e2e": "playwright test e2e"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.1",
@@ -28,7 +28,6 @@
     "algoliasearch": "^4.20.0",
     "axios": "^1.6.7",
     "lodash": "^4.17.21",
-    "medusa-next": "file:",
     "next": "^14.0.0",
     "pg": "^8.11.3",
     "qs": "^6.12.1",
