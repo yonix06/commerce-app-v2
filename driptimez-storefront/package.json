@@ -28,6 +28,7 @@
     "algoliasearch": "^4.20.0",
     "axios": "^1.6.7",
     "lodash": "^4.17.21",
+    "medusa-next": "file:",
     "next": "^14.0.0",
     "pg": "^8.11.3",
     "qs": "^6.12.1",
