@@ -3,7 +3,7 @@
 # Create a new Medusa app using Medusa CLI with the specified name and starter URL, and disable interactive mode
 # medusa new driptimez https://github.com/tinloof/medusa-b2c-starter -y --v2
 
-yarn create medusa-app@latest --repo-url https://github.com/tinloof/medusa-b2c-starter --verbose
+yarn create medusa-app@latest --verbose
 
 # Install dependencies and initialize the Medusa app using Yarn
 # cd driptimez || exit

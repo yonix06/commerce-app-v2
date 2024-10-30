@@ -119,5 +119,5 @@
   "onCreateCommand": "yarn add dbgate-serve && yarn install",
   "postCreateCommand": "screen yarn dbgate-serve & && systemctl start redis-server postgresql"
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
-  // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
+  // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock"
 }
