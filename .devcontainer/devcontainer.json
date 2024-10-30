@@ -1,9 +1,9 @@
 // https://github.com/devcontainers/images/tree/main/src/javascript-node
 {
-  "name": "driptimez-medusajs-devcontainer",
+  "name": "medusajs-devcontainer",
   //"image": "mcr.microsoft.com/devcontainers/javascript-node:22",
-  "image": "yonix06/medusa-dev:latest",
-  "workspaceFolder": "../",
+  "image": "medusajs-devcontainer:latest",
+  // "workspaceFolder": "../",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -100,15 +100,15 @@
     "ghcr.io/devcontainers-extra/features/mkcert:1": {},
     "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
     "ghcr.io/devcontainers-extra/features/typescript:2": {},
-    //"ghcr.io/itsmechlark/features/postgresql:1": {}, // Dans Dockerfile.dev
-    //"ghcr.io/itsmechlark/features/redis-server:1": {}, // Dans Dockerfile.dev
+    //"ghcr.io/itsmechlark/features/postgresql:1": {}, // Dans Dockerfile
+    //"ghcr.io/itsmechlark/features/redis-server:1": {}, // Dans Dockerfile
     "ghcr.io/frntn/devcontainers-features/postman:1": {}
   },
   "forwardPorts": [
-    80, // pgadmin4
+    // 80, // reverse proxy - //TODO: add reverse proxy
     1025, // mailpit
-    5432, // postgres
-    3000, // nextjs
+    5432, // postgresql
+    3000, // dbgate
     6379, // redis
     8000, // medusajs storefront
     8025, // mailpit ui
@@ -117,7 +117,8 @@
     9000 // medusajs backend+admin
   ],
   "remoteUser": "node",
-  "onCreateCommand": "yarn set version from sources && yarn install"
+  "onCreateCommand": "yarn set version from sources && yarn install",
+  "postCreateCommand": "dbgate-serve && systemctl start redis-server postgresql"
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
   // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
 }
