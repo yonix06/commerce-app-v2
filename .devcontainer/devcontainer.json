@@ -1,8 +1,11 @@
 // https://github.com/devcontainers/images/tree/main/src/javascript-node
 {
   "name": "medusajs-devcontainer",
-  "image": "yonix06/medusajs-devcontainer:latest",
-  // "workspaceFolder": "../",
+  "build": {
+    "dockerfile": "./Dockerfile"
+  },
+  // "image": "yonix06/medusajs-devcontainer:latest",
+  //"workspaceFolder": "../",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -113,8 +116,8 @@
     9000 // medusajs backend+admin
   ],
   "remoteUser": "node",
-  "onCreateCommand": "yarn set version canary && yarn install",
-  "postCreateCommand": "dbgate-serve && systemctl start redis-server postgresql"
+  "onCreateCommand": "yarn add dbgate-serve && yarn install",
+  "postCreateCommand": "screen yarn dbgate-serve & && systemctl start redis-server postgresql"
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
   // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
 }
