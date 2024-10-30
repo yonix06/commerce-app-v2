@@ -2,7 +2,7 @@
 
 # Build the image and push to Docker Hub
 
-docker buildx build -t medusajs-devcontainer:latest --push .
+docker buildx build -t yonix06/medusajs-devcontainer:latest --push .
 
 # Install devcontainer via Node.js
 
