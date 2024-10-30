@@ -113,7 +113,7 @@
     9000 // medusajs backend+admin
   ],
   "remoteUser": "node",
-  "onCreateCommand": "yarn set version from sources && yarn install",
+  "onCreateCommand": "yarn set version canary && yarn install",
   "postCreateCommand": "dbgate-serve && systemctl start redis-server postgresql"
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
   // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
