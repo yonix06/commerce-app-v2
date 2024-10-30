@@ -1,8 +1,7 @@
 // https://github.com/devcontainers/images/tree/main/src/javascript-node
 {
   "name": "medusajs-devcontainer",
-  //"image": "mcr.microsoft.com/devcontainers/javascript-node:22",
-  "image": "medusajs-devcontainer:latest",
+  "image": "yonix06/medusajs-devcontainer:latest",
   // "workspaceFolder": "../",
   "customizations": {
     "vscode": {
