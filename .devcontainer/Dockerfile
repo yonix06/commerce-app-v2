@@ -1,10 +1,11 @@
-FROM mcr.microsoft.com/devcontainers/typescript-node:dev-22-bookworm
+ARG BASE_IMAGE=mcr.microsoft.com/devcontainers/typescript-node:dev-22-bookworm
+FROM $BASE_IMAGE
 
 # Setup yarn
 RUN corepack enable
 
 # Install tslint, typescript. eslint is installed by javascript image
-ARG NODE_MODULES="nx tsx ts-node dbgate-serve"
+ARG NODE_MODULES="nx tsx ts-node dbgate-serve prettier eslint "
 RUN yarn global add ${NODE_MODULES} \
     && yarn cache clean --all > /dev/null 2>&1
 RUN apt-get update && apt-get install -y postgresql-common curl ca-certificates

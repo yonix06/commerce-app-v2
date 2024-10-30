@@ -20,21 +20,6 @@
       "resolved": "ghcr.io/devcontainers-extra/features/prettier@sha256:7d3348bf621855a735bcc5c39616333be08799244ffdd9b9f84528679c23d9ea",
       "integrity": "sha256:7d3348bf621855a735bcc5c39616333be08799244ffdd9b9f84528679c23d9ea"
     },
-    "ghcr.io/devcontainers-extra/features/prisma:2": {
-      "version": "2.0.15",
-      "resolved": "ghcr.io/devcontainers-extra/features/prisma@sha256:782ee94dc24d5d77097b36ca279370d657ad0ee3354689da5d7b4ce282595c4e",
-      "integrity": "sha256:782ee94dc24d5d77097b36ca279370d657ad0ee3354689da5d7b4ce282595c4e"
-    },
-    "ghcr.io/devcontainers-extra/features/typescript:2": {
-      "version": "2.0.15",
-      "resolved": "ghcr.io/devcontainers-extra/features/typescript@sha256:a2abfe6c0808f6c8a8172520b502a14c5e6c323c5a18c500ea00162925c46d88",
-      "integrity": "sha256:a2abfe6c0808f6c8a8172520b502a14c5e6c323c5a18c500ea00162925c46d88"
-    },
-    "ghcr.io/frntn/devcontainers-features/postman:1": {
-      "version": "1.0.0",
-      "resolved": "ghcr.io/frntn/devcontainers-features/postman@sha256:1f6d077014130e4a36df9e3fef9452029e3704ee5967f631593ab2ad3551920d",
-      "integrity": "sha256:1f6d077014130e4a36df9e3fef9452029e3704ee5967f631593ab2ad3551920d"
-    },
     "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {
       "version": "0.0.6",
       "resolved": "ghcr.io/nils-geistmann/devcontainers-features/zsh@sha256:5626261ca9b4c86df740aba1406853cb9366690b0cdac90c48b7a981165135dc",
