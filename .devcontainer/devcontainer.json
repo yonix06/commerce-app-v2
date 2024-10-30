@@ -2,9 +2,8 @@
 {
   "name": "driptimez-medusajs-devcontainer",
   //"image": "mcr.microsoft.com/devcontainers/javascript-node:22",
-  "build": {
-    "dockerfile": "Dockerfile.dev"
-  },
+  "image": "yonix06/medusa-dev:latest",
+  "workspaceFolder": "../",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -113,12 +112,12 @@
     6379, // redis
     8000, // medusajs storefront
     8025, // mailpit ui
-    7001, // medusajs api
+    7001, // medusajs backend api
     7379, // redis ui
     9000 // medusajs backend+admin
   ],
-  "remoteUser": "node"
+  "remoteUser": "node",
+  "onCreateCommand": "yarn set version from sources && yarn install"
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
   // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
-  
 }

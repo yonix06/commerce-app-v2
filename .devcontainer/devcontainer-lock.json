@@ -35,16 +35,6 @@
       "resolved": "ghcr.io/frntn/devcontainers-features/postman@sha256:1f6d077014130e4a36df9e3fef9452029e3704ee5967f631593ab2ad3551920d",
       "integrity": "sha256:1f6d077014130e4a36df9e3fef9452029e3704ee5967f631593ab2ad3551920d"
     },
-    "ghcr.io/itsmechlark/features/postgresql:1": {
-      "version": "1.5.0",
-      "resolved": "ghcr.io/itsmechlark/features/postgresql@sha256:a899d480c4a00dde33031f7928784ae0fe92a924d30c273c3583515f172f46f3",
-      "integrity": "sha256:a899d480c4a00dde33031f7928784ae0fe92a924d30c273c3583515f172f46f3"
-    },
-    "ghcr.io/itsmechlark/features/redis-server:1": {
-      "version": "1.1.0",
-      "resolved": "ghcr.io/itsmechlark/features/redis-server@sha256:3c060bbbb0b86a8e23493c86d6aa07516931c9b65592622c9be65faba7aae7a9",
-      "integrity": "sha256:3c060bbbb0b86a8e23493c86d6aa07516931c9b65592622c9be65faba7aae7a9"
-    },
     "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {
       "version": "0.0.6",
       "resolved": "ghcr.io/nils-geistmann/devcontainers-features/zsh@sha256:5626261ca9b4c86df740aba1406853cb9366690b0cdac90c48b7a981165135dc",

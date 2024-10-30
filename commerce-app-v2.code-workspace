@@ -17,8 +17,7 @@
 		"java.project.resourceFilters": [
 			"node_modules",
 			"\\.git",
-			".nx",
-			""
+			".nx"
 		],
 		"files.autoSave": "afterDelay",
 		"scm.providerCountBadge": "auto",
