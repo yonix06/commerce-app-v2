@@ -1,7 +1,7 @@
 services:
   store-frontend:
     container_name: store-frontend
-    #image: yonix06/medusajs:latest
+    #image: yonix06/dev:store-frontend
     build:
       context: ./apps/store-storefront
       dockerfile: Dockerfile
@@ -19,7 +19,7 @@ services:
 
   store-backend:
     container_name: store-backend
-    #image: yonix06/medusajs:latest
+    #image: yonix06/dev:store-backend
     build:
       context: ./apps/store
       dockerfile: Dockerfile
@@ -51,7 +51,6 @@ services:
     networks:
       store:
         ipv4_address: 172.16.238.101
-
 
   redis:
     container_name: redis

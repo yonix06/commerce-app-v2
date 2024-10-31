@@ -1,12 +1,14 @@
 services:
   dev:
     image: yonix06/dev:devcontainer-db
-    entrypoint: sleep infinity
+    entrypoint:
+     - sleep 
+     - infinity
     init: true
     volumes:
       - ./apps:/workspaces:cached
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./appdata/postgresql:/var/lib/postgresql:rwx
+      - ./appdata/postgresql:/var/lib/postgresql
     ## ports:
     ##   - 8000:8000
     ##   - 9000:9000
