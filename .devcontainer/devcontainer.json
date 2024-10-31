@@ -122,7 +122,7 @@
   },
   "remoteUser": "root",
   "containerUser": "root",
-  "onCreateCommand": "yarn set version canary && screen yarn dbgate-serve & && systemctl start redis-server postgresql mailpit",
+  "onCreateCommand": "yarn set version canary && yarn dbgate-serve &",
   // "postCreateCommand": ""
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
 }
