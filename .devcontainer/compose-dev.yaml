@@ -1,13 +1,14 @@
 services:
-  app:
+  dev:
     entrypoint:
     - sleep
     - infinity
     image: yonix06/dev:devcontainer-db
     init: true
     volumes:
+      - ..:/workspaces:cached
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./../appdata/postgresql:/var/lib/postgresql:rw
+      - ../appdata/postgresql:/var/lib/postgresql:rw
 
   mail:
     container_name: mail

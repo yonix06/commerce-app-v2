@@ -1,116 +1,95 @@
-// https://github.com/devcontainers/images/tree/main/src/javascript-node
 {
-  "name": "medusajs-devcontainer",
-  "image": "yonix06/dev:devcontainer-db",
-  //"workspaceFolder": ".",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "mhutchie.git-graph",
-        "donjayamanne.githistory",
-        "waderyan.gitblame",
-        "shaharkazaz.git-merger",
-        "GitHub.vscode-pull-request-github",
-        "GitHub.remotehub",
-        "github.vscode-github-actions",
-        "shyykoserhiy.git-autoconfig",
-        "naumovs.color-highlight",
-        "vivaxy.vscode-conventional-commits",
-        "ms-vscode-remote.remote-containers",
-        "Continue.continue",
-        "usernamehw.errorlens",
-        "eliostruyf.vscode-front-matter",
-        "EditorConfig.EditorConfig",
-        "ynny.docker-host-exchanger",
-        "oderwat.indent-rainbow",
-        "VisualStudioExptTeam.vscodeintellicode",
-        "moalamri.inline-fold",
-        "VisualStudioExptTeam.intellicode-api-usage-examples",
-        "VisualStudioExptTeam.vscodeintellicode-completions",
-        "Zignd.html-css-class-completion",
-        "firsttris.vscode-jest-runner",
-        "jevakallio.vscode-live-frame",
-        "ms-vscode.live-server",
-        "glenn2223.live-sass",
-        "nrwl.angular-console",
-        "christian-kohler.path-intellisense",
-        "ms-playwright.playwright",
-        "ms-ossdata.vscode-postgresql",
-        "zenclabs.previewjs",
-        "Prisma.prisma",
-        "AbianS.prisma-generate-uml",
-        "ms-vscode-remote.remote-ssh",
-        "ms-vscode-remote.remote-ssh-edit",
-        "ms-vscode.remote-server",
-        "ms-vscode-remote.vscode-remote-extensionpack",
-        "ms-vscode.remote-explorer",
-        "ms-vscode.remote-repositories",
-        "c0der-himel.remove-console-log",
-        "miku3920.vscode-render-special-chars",
-        "humao.rest-client",
-        "Glaider.glaider-secrets-sniper",
-        "imgildev.vscode-nextjs-generator",
-        "Gruntfuggly.todo-tree",
-        "redhat.vscode-yaml",
-        "Tobermory.es6-string-html",
-        "Postman.postman-for-vscode",
-        "cweijan.dbclient-jdbc",
-        "ms-azuretools.vscode-docker",
-        "docker.docker-vscode-extension"
-      ]
-    }
-  },
-  "mounts": [
-    {
-      "source": "/var/run/docker.sock",
-      "target": "/var/run/docker.sock",
-      "type": "bind"
-    },
-    {
-      "source": "./appdata/postgresql",
-      "target": "/var/lib/postgresql/data",
-      "type": "bind"
-    },
-    {
-      "source": "./appdata/redis",
-      "target": "/var/lib/redis",
-      "type": "bind"
-    },
-    {
-      "source": "./devdata/mailpit/lib/",
-      "target": "/var/lib/mailpit",
-      "type": "bind"
-    },
-    {
-      "source": "./devdata/mailpit/data/",
-      "target": "/usr/local/bin/mailpit",
-      "type": "bind"
-    }
-  ],
-  "features": {
-    "ghcr.io/devcontainers-extra/features/prisma:2": {},
-    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
-    "ghcr.io/itsmechlark/features/postgresql:1": {},
-    "ghcr.io/devcontainers-extra/features/gitsign-credential-cache:1": {}
-  },
-  "forwardPorts": [
-    1025, // mailpit
-    5432, // postgresql
-    3000, // dbgate
-    6080, // web desktop
-    6379, // redis
-    8000, // medusajs storefront
-    8025, // mailpit ui
-    7001, // medusajs backend api
-    7379, // redis ui
-    9000 // medusajs backend+admin
+      "name": "medusajs-devcontainer",
+      "dockerComposeFile": [
+		    "compose-dev.yaml"
+	    ],
+      "service": "dev",
+      "customizations": {
+        "vscode": {
+          "extensions": [
+            "esbenp.prettier-vscode",
+            "dbaeumer.vscode-eslint",
+            "mhutchie.git-graph",
+            "donjayamanne.githistory",
+            "waderyan.gitblame",
+            "shaharkazaz.git-merger",
+            "GitHub.vscode-pull-request-github",
+            "GitHub.remotehub",
+            "github.vscode-github-actions",
+            "shyykoserhiy.git-autoconfig",
+            "naumovs.color-highlight",
+            "vivaxy.vscode-conventional-commits",
+            "ms-vscode-remote.remote-containers",
+            "Continue.continue",
+            "usernamehw.errorlens",
+            "eliostruyf.vscode-front-matter",
+            "EditorConfig.EditorConfig",
+            "ynny.docker-host-exchanger",
+            "oderwat.indent-rainbow",
+            "VisualStudioExptTeam.vscodeintellicode",
+            "moalamri.inline-fold",
+            "VisualStudioExptTeam.intellicode-api-usage-examples",
+            "VisualStudioExptTeam.vscodeintellicode-completions",
+            "Zignd.html-css-class-completion",
+            "firsttris.vscode-jest-runner",
+            "jevakallio.vscode-live-frame",
+            "ms-vscode.live-server",
+            "glenn2223.live-sass",
+            "nrwl.angular-console",
+            "christian-kohler.path-intellisense",
+            "ms-playwright.playwright",
+            "ms-ossdata.vscode-postgresql",
+            "zenclabs.previewjs",
+            "Prisma.prisma",
+            "AbianS.prisma-generate-uml",
+            "ms-vscode-remote.remote-ssh",
+            "ms-vscode-remote.remote-ssh-edit",
+            "ms-vscode.remote-server",
+            "ms-vscode-remote.vscode-remote-extensionpack",
+            "ms-vscode.remote-explorer",
+            "ms-vscode.remote-repositories",
+            "c0der-himel.remove-console-log",
+            "miku3920.vscode-render-special-chars",
+            "humao.rest-client",
+            "Glaider.glaider-secrets-sniper",
+            "imgildev.vscode-nextjs-generator",
+            "Gruntfuggly.todo-tree",
+            "redhat.vscode-yaml",
+            "Tobermory.es6-string-html",
+            "Postman.postman-for-vscode",
+            "cweijan.dbclient-jdbc",
+            "ms-azuretools.vscode-docker",
+            "docker.docker-vscode-extension"
+          ]
+        }
+      },
+      "mounts": [
+        {
+          "source": "/var/run/docker.sock",
+          "target": "/var/run/docker.sock",
+          "type": "bind"
+        },
+        {
+          "source": "./appdata/postgresql",
+          "target": "/var/lib/postgresql/data",
+          "type": "bind"
+        }
+      ],
+      "features": {
+        "ghcr.io/devcontainers-extra/features/prisma:2": {},
+        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+        "ghcr.io/itsmechlark/features/postgresql:1": {}
+      },
+      "forwardPorts": [
+        1025, // mailpit
+        5432, // postgresql
+        3000, // dbgate
+        6080, // web desktop
+        6379, // redis
+        8000, // medusajs storefront
+        8025, // mailpit ui
+        7001, // medusajs backend api
+        7379, // redis ui
+        9000 // medusajs backend+admin
   ]
 }
-
-  // "remoteUser": "root",
-  // "containerUser": "root"
-  // "onCreateCommand": "yarn set version canary",
-  // "postCreateCommand": "screen yarn dbgate-serve &"
-  // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
