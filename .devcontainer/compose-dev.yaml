@@ -7,7 +7,7 @@ services:
     init: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./appdata/postgresql:/var/lib/postgresql:rw
+      - ./../appdata/postgresql:/var/lib/postgresql:rw
 
   mail:
     container_name: mail

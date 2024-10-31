@@ -41,7 +41,7 @@ services:
     image: postgres:17
     restart: always
     environment:
-      POSTGRES_USER: medusa
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: medusa-store
     ports:
@@ -95,8 +95,6 @@ networks:
       config:
         - subnet: 172.16.238.0/24
           gateway: 172.16.238.1
-        - subnet: 2001:3984:3989::/64
-          gateway: 2001:3984:3989::1
     labels:
       com.docker.compose.project: store
 
