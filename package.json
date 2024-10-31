@@ -6,7 +6,7 @@
     "json-stable-stringify": "^1.1.1",
     "lodash": "^4.17.21",
     "moment": "^2.30.1",
-    "nx": "20.0.6"
+    "nx": "20.1.0-canary.20241031-ce05a98"
   },
   "dependencies": {
     "@nx/workspace": "20.1.0-canary.20241031-ce05a98"
