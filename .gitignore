@@ -45,3 +45,8 @@ coverage/
 .devcontainer/tempCodeRunnerFile.sh
 *.out
 *.log
+
+
+
+.nx/cache
+.nx/workspace-data

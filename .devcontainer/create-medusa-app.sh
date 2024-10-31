@@ -14,4 +14,4 @@ cd .. && yarn create medusa-app@latest --verbose
 # nx generate @nx/workspace:lib --name=driptimez --directory=apps/driptimez --tags=scope:driptimez --packageManager=yarn --no-interactive
 # nx generate @nx/workspace:lib --name=storefront --directory=apps/storefront --tags=scope:storefront --packageManager=yarn --no-interactive
 
-echo "Medusa app 'driptimez' and storefront have been created and initialized successfully!"
+echo "Medusa app 'store' and it's storefront have been created and initialized successfully!"
