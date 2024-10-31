@@ -1,35 +1,36 @@
 # Arguments and Environment variables
-ARG BASE_IMAGE="ubernode"
-ARG VARIANT="23"
-ARG NPM_GLOBAL=/usr/local/share/npm-global
+ARG BASE_IMAGE="yonix06/dev"
+ARG VARIANT="node23-yarn4"
 FROM $BASE_IMAGE:$VARIANT
-ENV PATH=${NPM_GLOBAL}/bin:${PATH}
-ENV YARN_VERSION canary
-USER node
-WORKDIR /home/node
-RUN yarn set-version $YARN_VERSION
+ENV YARN_VERSION=canary
+RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
+WORKDIR /home/node/app
+RUN corepack enable
+RUN yarn init -w
 
 # Install dev tools & deps
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install postgresql-common git curl wget mkcert bash zsh ca-certificates openssh-client software-properties-common \
+    && apt-get update && apt-get -y install postgresql-common git curl wget mkcert bash zsh ca-certificates openssh-client software-properties-common \
     redis webdis libpq5 postgresql postgresql-client postgresql-client-common fonts-powerline \
     && apt-get autoremove -y
+USER node
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN git clone https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
+RUN echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
+USER root
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN git clone https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
+RUN echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
 RUN chsh -s /bin/zsh
-COPY /home/yonix/.zshrc /home/node/.zshrc
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
-
-# Install dbgate and deps with Typescript globally
-RUN yarn global add nx@latest @medusajs/medusa-cli eslint prettier typescript tslint tslint-to-eslint-config tsx ts-node dbgate-serve lodash json-stable-stringify debug dotenv moment
-RUN yarn install
+# Install deps
+RUN yarn add nx@latest @medusajs/medusa-cli eslint prettier typescript tslint tslint-to-eslint-config tsx ts-node dbgate-serve lodash json-stable-stringify debug dotenv moment
 RUN yarn cache clean --all > /dev/null 2>&1
 
 # Install NVM
-#RUN su node -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash"
-#RUN nvm install $NODE_VERSION && nvm use $NODE_VERSION
-RUN source /usr/local/share/nvm/nvm.sh
+RUN su node -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash"
+
 
 # Install Mailpit
 RUN curl -sL https://raw.githubusercontent.com/axllent/mailpit/develop/install.sh | sh
@@ -48,9 +49,7 @@ Group=mailpit
 [Install]
 WantedBy=multi-user.target
 EOT
-
 RUN mkdir -p /var/lib/mailpit
-RUN chown -R mailpit:mailpit /var/lib/mailpit
 
 # Install PostmanCLI
 RUN curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
@@ -59,11 +58,11 @@ RUN curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
 # ARG EXTRA_NODE_VERSION=10
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
 
-# Reload systemd to pick up the new service
-RUN systemctl daemon-reload
+# Clean up
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Enable Dev Services
-RUN systemctl enable redis-server postgresql mailpit && systemctl start redis-server postgresql mailpit
+RUN systemctl enable redis-server postgresql mailpit
 
 # [3000]-dbgate [1025]-mailpit [5432]-postgresql [6379]-redis [8000]-medusajs-storefront [8025]-mailpit-ui [7001]-medusajs-backend-api [7379]-redis-ui [9000]-medusajs-backend+admin
 EXPOSE 3000
@@ -76,7 +75,6 @@ EXPOSE 8000
 EXPOSE 8025
 EXPOSE 9000
 
-# Clean up
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+VOLUME /home/node/app
 
 CMD [ "zsh" ]
