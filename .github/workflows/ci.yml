@@ -18,10 +18,11 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - run: corepack enable && yarn set version canary
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
+          
       
 
       # This enables task distribution via Nx Cloud
@@ -36,7 +37,6 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
-      - run: corepack enable && yarn set version canary
       - run: yarn install --immutable
       - uses: nrwl/nx-set-shas@v4
 
