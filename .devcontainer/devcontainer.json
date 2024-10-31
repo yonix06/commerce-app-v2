@@ -76,6 +76,6 @@
     7001, // medusajs backend api
     9000 // medusajs backend+admin
   ],
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "remoteEnv": { "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}" }
+  "workspaceFolder": ".",
+  "remoteEnv": { "LOCAL_WORKSPACE_FOLDER": "." }
 }

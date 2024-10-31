@@ -7,7 +7,6 @@ services:
      - infinity
     init: true
     volumes:
-      - ./apps:/workspaces:cached
       - /var/run/docker.sock:/var/run/docker.sock
       - ./appdata/postgresql:/var/lib/postgresql:rwx
     ## ports:
