@@ -89,18 +89,15 @@
       "type": "bind"
     }
   ],
-  //"containerEnv": { "BASE_IMAGE": "${localEnv:BASE_IMAGE:'node:23.1.0}" },
   "features": {
     "ghcr.io/devcontainers-extra/features/prisma:2": {},
     "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
-    "ghcr.io/schlich/devcontainer-features/powerlevel10k:1": {},
     "ghcr.io/devcontainers-extra/features/gh-cli:1": {},
     "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
     "ghcr.io/devcontainers/features/desktop-lite:1": {},
     "ghcr.io/devcontainers/features/git-lfs:1": {},
     "ghcr.io/frntn/devcontainers-features/postman:1": {},
     "ghcr.io/itsmechlark/features/postgresql:1": {},
-    "ghcr.io/devcontainers-extra/features/devcontainers-cli:1": {},
     "ghcr.io/devcontainers-extra/features/gitsign-credential-cache:1": {},
     "ghcr.io/devcontainers-extra/features/grpcurl-asdf:2": {},
     "ghcr.io/devcontainers-extra/features/vercel-cli:1": {}
@@ -126,6 +123,6 @@
   "remoteUser": "root",
   "containerUser": "root",
   "onCreateCommand": "yarn set version canary && screen yarn dbgate-serve & && systemctl start redis-server postgresql mailpit",
-  "postCreateCommand": "sudo chown root:docker /var/run/docker.sock"
+  // "postCreateCommand": ""
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
 }
