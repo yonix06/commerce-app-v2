@@ -4,7 +4,9 @@
   "nxCloudId": "6723282ce2920314254d2ac0",
   "namedInputs": {
     "sharedGlobals": [
-      "{workspaceRoot}/.github/workflows/ci.yml"
+      "{workspaceRoot}/.github/workflows/ci.yml",
+      "{workspaceRoot}/.circleci/config.yml",
+      "{workspaceRoot}/.gitlab-ci.yml"
     ],
     "default": [
       "sharedGlobals"
