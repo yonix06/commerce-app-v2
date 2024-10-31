@@ -50,3 +50,5 @@ coverage/
 
 .nx/cache
 .nx/workspace-data
+devdata/
+devdata/mailpit/mailpit.db
