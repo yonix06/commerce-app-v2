@@ -1,14 +1,19 @@
 services:
   dev:
-    entrypoint:
-    - sleep
-    - infinity
     image: yonix06/dev:devcontainer-db
+    entrypoint: /usr/local/share/docker-init.sh
+    command: sleep infinity
     init: true
     volumes:
-      - ..:/workspaces:cached
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ../appdata/postgresql:/var/lib/postgresql:rw
+      - ./../:/workspaces:cached
+      - /var/run/docker.sock:/var/run/docker-host.sock
+      - ../appdata/postgresql:/var/lib/postgresql:rwx
+    ports:
+      - 8000:8000
+      - 9000:9000
+      - 7001:7001
+      - 5432:5432
+      - 6379:6379
 
   mail:
     container_name: mail
@@ -30,7 +35,7 @@ services:
   image: dpage/pgadmin4
   restart: always
   environment:
-    PGADMIN_DEFAULT_EMAIL: admin@store.local
+    PGADMIN_DEFAULT_EMAIL: admin@store.medusa
     PGADMIN_DEFAULT_PASSWORD: password
   ports:
     - '5052:80'

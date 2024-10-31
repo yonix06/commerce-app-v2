@@ -63,33 +63,18 @@
           ]
         }
       },
-      "mounts": [
-        {
-          "source": "/var/run/docker.sock",
-          "target": "/var/run/docker.sock",
-          "type": "bind"
-        },
-        {
-          "source": "./appdata/postgresql",
-          "target": "/var/lib/postgresql/data",
-          "type": "bind"
-        }
-      ],
       "features": {
         "ghcr.io/devcontainers-extra/features/prisma:2": {},
         "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
         "ghcr.io/itsmechlark/features/postgresql:1": {}
       },
       "forwardPorts": [
-        1025, // mailpit
         5432, // postgresql
-        3000, // dbgate
-        6080, // web desktop
         6379, // redis
         8000, // medusajs storefront
-        8025, // mailpit ui
         7001, // medusajs backend api
-        7379, // redis ui
         9000 // medusajs backend+admin
-  ]
+      ],
+      "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+      "remoteEnv": { "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}" }
 }
