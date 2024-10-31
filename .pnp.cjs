@@ -27,6 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@nx/workspace", "npm:20.1.0-canary.20241031-ce05a98"],\
           ["dbgate-serve", "npm:5.5.6"],\
           ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.7"],\
           ["json-stable-stringify", "npm:1.1.1"],\
@@ -870,11 +871,48 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@nx/devkit", [\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "../../yonix/.yarn/berry/cache/@nx-devkit-npm-20.1.0-canary.20241031-ce05a98-f311e9d4d9-10c0.zip/node_modules/@nx/devkit/",\
+        "packageDependencies": [\
+          ["@nx/devkit", "npm:20.1.0-canary.20241031-ce05a98"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2743cef61923cabea11a924cee88b5edad768af0c3077fede628563605928fae931c80bc6face311baddadb8edb1b45133fc3f89aa27d919d2a1504b0b1228ea#npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/__virtual__/@nx-devkit-virtual-b31772d2c2/3/yonix/.yarn/berry/cache/@nx-devkit-npm-20.1.0-canary.20241031-ce05a98-f311e9d4d9-10c0.zip/node_modules/@nx/devkit/",\
+        "packageDependencies": [\
+          ["@nx/devkit", "virtual:2743cef61923cabea11a924cee88b5edad768af0c3077fede628563605928fae931c80bc6face311baddadb8edb1b45133fc3f89aa27d919d2a1504b0b1228ea#npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@types/nx", null],\
+          ["ejs", "npm:3.1.10"],\
+          ["enquirer", "npm:2.3.6"],\
+          ["ignore", "npm:5.3.2"],\
+          ["minimatch", "npm:9.0.3"],\
+          ["nx", "virtual:2743cef61923cabea11a924cee88b5edad768af0c3077fede628563605928fae931c80bc6face311baddadb8edb1b45133fc3f89aa27d919d2a1504b0b1228ea#npm:20.1.0-canary.20241031-ce05a98"],\
+          ["semver", "npm:7.6.3"],\
+          ["tmp", "npm:0.2.3"],\
+          ["tslib", "npm:2.8.0"],\
+          ["yargs-parser", "npm:21.1.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/nx",\
+          "nx"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@nx/nx-darwin-arm64", [\
       ["npm:20.0.6", {\
         "packageLocation": "./.yarn/unplugged/@nx-nx-darwin-arm64-npm-20.0.6-09db33b019/node_modules/@nx/nx-darwin-arm64/",\
         "packageDependencies": [\
           ["@nx/nx-darwin-arm64", "npm:20.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-darwin-arm64-npm-20.1.0-canary.20241031-ce05a98-f4f3150731/node_modules/@nx/nx-darwin-arm64/",\
+        "packageDependencies": [\
+          ["@nx/nx-darwin-arm64", "npm:20.1.0-canary.20241031-ce05a98"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -886,6 +924,13 @@ const RAW_RUNTIME_STATE =
           ["@nx/nx-darwin-x64", "npm:20.0.6"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-darwin-x64-npm-20.1.0-canary.20241031-ce05a98-3ce535fdbd/node_modules/@nx/nx-darwin-x64/",\
+        "packageDependencies": [\
+          ["@nx/nx-darwin-x64", "npm:20.1.0-canary.20241031-ce05a98"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@nx/nx-freebsd-x64", [\
@@ -893,6 +938,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/unplugged/@nx-nx-freebsd-x64-npm-20.0.6-6446e15ad4/node_modules/@nx/nx-freebsd-x64/",\
         "packageDependencies": [\
           ["@nx/nx-freebsd-x64", "npm:20.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-freebsd-x64-npm-20.1.0-canary.20241031-ce05a98-c67cb3d826/node_modules/@nx/nx-freebsd-x64/",\
+        "packageDependencies": [\
+          ["@nx/nx-freebsd-x64", "npm:20.1.0-canary.20241031-ce05a98"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -904,6 +956,13 @@ const RAW_RUNTIME_STATE =
           ["@nx/nx-linux-arm-gnueabihf", "npm:20.0.6"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-linux-arm-gnueabihf-npm-20.1.0-canary.20241031-ce05a98-9d9308cb99/node_modules/@nx/nx-linux-arm-gnueabihf/",\
+        "packageDependencies": [\
+          ["@nx/nx-linux-arm-gnueabihf", "npm:20.1.0-canary.20241031-ce05a98"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@nx/nx-linux-arm64-gnu", [\
@@ -911,6 +970,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/unplugged/@nx-nx-linux-arm64-gnu-npm-20.0.6-83bc047941/node_modules/@nx/nx-linux-arm64-gnu/",\
         "packageDependencies": [\
           ["@nx/nx-linux-arm64-gnu", "npm:20.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-linux-arm64-gnu-npm-20.1.0-canary.20241031-ce05a98-d87c2b9eca/node_modules/@nx/nx-linux-arm64-gnu/",\
+        "packageDependencies": [\
+          ["@nx/nx-linux-arm64-gnu", "npm:20.1.0-canary.20241031-ce05a98"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -922,6 +988,13 @@ const RAW_RUNTIME_STATE =
           ["@nx/nx-linux-arm64-musl", "npm:20.0.6"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-linux-arm64-musl-npm-20.1.0-canary.20241031-ce05a98-b00fe02e70/node_modules/@nx/nx-linux-arm64-musl/",\
+        "packageDependencies": [\
+          ["@nx/nx-linux-arm64-musl", "npm:20.1.0-canary.20241031-ce05a98"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@nx/nx-linux-x64-gnu", [\
@@ -929,6 +1002,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/unplugged/@nx-nx-linux-x64-gnu-npm-20.0.6-c0cb7de46d/node_modules/@nx/nx-linux-x64-gnu/",\
         "packageDependencies": [\
           ["@nx/nx-linux-x64-gnu", "npm:20.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-linux-x64-gnu-npm-20.1.0-canary.20241031-ce05a98-efcbbe87ee/node_modules/@nx/nx-linux-x64-gnu/",\
+        "packageDependencies": [\
+          ["@nx/nx-linux-x64-gnu", "npm:20.1.0-canary.20241031-ce05a98"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -940,6 +1020,13 @@ const RAW_RUNTIME_STATE =
           ["@nx/nx-linux-x64-musl", "npm:20.0.6"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-linux-x64-musl-npm-20.1.0-canary.20241031-ce05a98-3203f013de/node_modules/@nx/nx-linux-x64-musl/",\
+        "packageDependencies": [\
+          ["@nx/nx-linux-x64-musl", "npm:20.1.0-canary.20241031-ce05a98"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@nx/nx-win32-arm64-msvc", [\
@@ -949,6 +1036,13 @@ const RAW_RUNTIME_STATE =
           ["@nx/nx-win32-arm64-msvc", "npm:20.0.6"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-win32-arm64-msvc-npm-20.1.0-canary.20241031-ce05a98-a824e8361e/node_modules/@nx/nx-win32-arm64-msvc/",\
+        "packageDependencies": [\
+          ["@nx/nx-win32-arm64-msvc", "npm:20.1.0-canary.20241031-ce05a98"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@nx/nx-win32-x64-msvc", [\
@@ -956,6 +1050,28 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/unplugged/@nx-nx-win32-x64-msvc-npm-20.0.6-f3cb064b50/node_modules/@nx/nx-win32-x64-msvc/",\
         "packageDependencies": [\
           ["@nx/nx-win32-x64-msvc", "npm:20.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/@nx-nx-win32-x64-msvc-npm-20.1.0-canary.20241031-ce05a98-62ce28f6b4/node_modules/@nx/nx-win32-x64-msvc/",\
+        "packageDependencies": [\
+          ["@nx/nx-win32-x64-msvc", "npm:20.1.0-canary.20241031-ce05a98"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@nx/workspace", [\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "../../yonix/.yarn/berry/cache/@nx-workspace-npm-20.1.0-canary.20241031-ce05a98-2743cef619-10c0.zip/node_modules/@nx/workspace/",\
+        "packageDependencies": [\
+          ["@nx/workspace", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/devkit", "virtual:2743cef61923cabea11a924cee88b5edad768af0c3077fede628563605928fae931c80bc6face311baddadb8edb1b45133fc3f89aa27d919d2a1504b0b1228ea#npm:20.1.0-canary.20241031-ce05a98"],\
+          ["chalk", "npm:4.1.2"],\
+          ["enquirer", "npm:2.3.6"],\
+          ["nx", "virtual:2743cef61923cabea11a924cee88b5edad768af0c3077fede628563605928fae931c80bc6face311baddadb8edb1b45133fc3f89aa27d919d2a1504b0b1228ea#npm:20.1.0-canary.20241031-ce05a98"],\
+          ["tslib", "npm:2.8.0"],\
+          ["yargs-parser", "npm:21.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1843,7 +1959,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../yonix/.yarn/berry/cache/axios-npm-0.21.4-e278873748-10c0.zip/node_modules/axios/",\
         "packageDependencies": [\
           ["axios", "npm:0.21.4"],\
-          ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9"]\
+          ["follow-redirects", "virtual:cfbedc233d4c16068d815547ad303dec1092fdb3b8bb4ec9ab9c56bdd55b4e87650c7a525a88805756f4d2819c03abfd96a9983cfa927fedf995d1b8b879db38#npm:1.15.9"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -1851,7 +1967,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../yonix/.yarn/berry/cache/axios-npm-1.7.7-cfbedc233d-10c0.zip/node_modules/axios/",\
         "packageDependencies": [\
           ["axios", "npm:1.7.7"],\
-          ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9"],\
+          ["follow-redirects", "virtual:cfbedc233d4c16068d815547ad303dec1092fdb3b8bb4ec9ab9c56bdd55b4e87650c7a525a88805756f4d2819c03abfd96a9983cfa927fedf995d1b8b879db38#npm:1.15.9"],\
           ["form-data", "npm:4.0.1"],\
           ["proxy-from-env", "npm:1.1.0"]\
         ],\
@@ -2899,6 +3015,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["ejs", [\
+      ["npm:3.1.10", {\
+        "packageLocation": "../../yonix/.yarn/berry/cache/ejs-npm-3.1.10-4e8cf4bdc1-10c0.zip/node_modules/ejs/",\
+        "packageDependencies": [\
+          ["ejs", "npm:3.1.10"],\
+          ["jake", "npm:10.9.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["emoji-regex", [\
       ["npm:7.0.3", {\
         "packageLocation": "../../yonix/.yarn/berry/cache/emoji-regex-npm-7.0.3-cfe9479bb3-10c0.zip/node_modules/emoji-regex/",\
@@ -3367,6 +3493,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["filelist", [\
+      ["npm:1.0.4", {\
+        "packageLocation": "../../yonix/.yarn/berry/cache/filelist-npm-1.0.4-3a835ae0a7-10c0.zip/node_modules/filelist/",\
+        "packageDependencies": [\
+          ["filelist", "npm:1.0.4"],\
+          ["minimatch", "npm:5.1.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["finalhandler", [\
       ["npm:1.3.1", {\
         "packageLocation": "../../yonix/.yarn/berry/cache/finalhandler-npm-1.3.1-690d7d7e6d-10c0.zip/node_modules/finalhandler/",\
@@ -3421,10 +3557,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9", {\
-        "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-f701e31d21/3/yonix/.yarn/berry/cache/follow-redirects-npm-1.15.9-539785d34c-10c0.zip/node_modules/follow-redirects/",\
+      ["virtual:cfbedc233d4c16068d815547ad303dec1092fdb3b8bb4ec9ab9c56bdd55b4e87650c7a525a88805756f4d2819c03abfd96a9983cfa927fedf995d1b8b879db38#npm:1.15.9", {\
+        "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-334ade9a15/3/yonix/.yarn/berry/cache/follow-redirects-npm-1.15.9-539785d34c-10c0.zip/node_modules/follow-redirects/",\
         "packageDependencies": [\
-          ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9"],\
+          ["follow-redirects", "virtual:cfbedc233d4c16068d815547ad303dec1092fdb3b8bb4ec9ab9c56bdd55b4e87650c7a525a88805756f4d2819c03abfd96a9983cfa927fedf995d1b8b879db38#npm:1.15.9"],\
           ["@types/debug", null],\
           ["debug", null]\
         ],\
@@ -4120,6 +4256,19 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["jake", [\
+      ["npm:10.9.2", {\
+        "packageLocation": "../../yonix/.yarn/berry/cache/jake-npm-10.9.2-3bf2173aed-10c0.zip/node_modules/jake/",\
+        "packageDependencies": [\
+          ["jake", "npm:10.9.2"],\
+          ["async", "npm:3.2.6"],\
+          ["chalk", "npm:4.1.2"],\
+          ["filelist", "npm:1.0.4"],\
+          ["minimatch", "npm:3.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["jest-diff", [\
       ["npm:29.7.0", {\
         "packageLocation": "../../yonix/.yarn/berry/cache/jest-diff-npm-29.7.0-0149e01930-10c0.zip/node_modules/jest-diff/",\
@@ -4560,6 +4709,14 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
+      ["npm:5.1.6", {\
+        "packageLocation": "../../yonix/.yarn/berry/cache/minimatch-npm-5.1.6-1e71429f4c-10c0.zip/node_modules/minimatch/",\
+        "packageDependencies": [\
+          ["minimatch", "npm:5.1.6"],\
+          ["brace-expansion", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:9.0.3", {\
         "packageLocation": "../../yonix/.yarn/berry/cache/minimatch-npm-9.0.3-69d7d6fad5-10c0.zip/node_modules/minimatch/",\
         "packageDependencies": [\
@@ -4909,6 +5066,72 @@ const RAW_RUNTIME_STATE =
           ["nx", "npm:20.0.6"]\
         ],\
         "linkType": "SOFT"\
+      }],\
+      ["npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/nx-virtual-2397ed37f5/node_modules/nx/",\
+        "packageDependencies": [\
+          ["nx", "npm:20.1.0-canary.20241031-ce05a98"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2743cef61923cabea11a924cee88b5edad768af0c3077fede628563605928fae931c80bc6face311baddadb8edb1b45133fc3f89aa27d919d2a1504b0b1228ea#npm:20.1.0-canary.20241031-ce05a98", {\
+        "packageLocation": "./.yarn/unplugged/nx-virtual-2397ed37f5/node_modules/nx/",\
+        "packageDependencies": [\
+          ["nx", "virtual:2743cef61923cabea11a924cee88b5edad768af0c3077fede628563605928fae931c80bc6face311baddadb8edb1b45133fc3f89aa27d919d2a1504b0b1228ea#npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@napi-rs/wasm-runtime", "npm:0.2.4"],\
+          ["@nx/nx-darwin-arm64", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-darwin-x64", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-freebsd-x64", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-linux-arm-gnueabihf", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-linux-arm64-gnu", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-linux-arm64-musl", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-linux-x64-gnu", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-linux-x64-musl", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-win32-arm64-msvc", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@nx/nx-win32-x64-msvc", "npm:20.1.0-canary.20241031-ce05a98"],\
+          ["@swc-node/register", null],\
+          ["@swc/core", null],\
+          ["@types/swc-node__register", null],\
+          ["@types/swc__core", null],\
+          ["@yarnpkg/lockfile", "npm:1.1.0"],\
+          ["@yarnpkg/parsers", "npm:3.0.0-rc.46"],\
+          ["@zkochan/js-yaml", "npm:0.0.7"],\
+          ["axios", "npm:1.7.7"],\
+          ["chalk", "npm:4.1.2"],\
+          ["cli-cursor", "npm:3.1.0"],\
+          ["cli-spinners", "npm:2.6.1"],\
+          ["cliui", "npm:8.0.1"],\
+          ["dotenv", "npm:16.4.5"],\
+          ["dotenv-expand", "npm:11.0.6"],\
+          ["enquirer", "npm:2.3.6"],\
+          ["figures", "npm:3.2.0"],\
+          ["flat", "npm:5.0.2"],\
+          ["front-matter", "npm:4.0.2"],\
+          ["ignore", "npm:5.3.2"],\
+          ["jest-diff", "npm:29.7.0"],\
+          ["jsonc-parser", "npm:3.2.0"],\
+          ["lines-and-columns", "npm:2.0.3"],\
+          ["minimatch", "npm:9.0.3"],\
+          ["node-machine-id", "npm:1.1.12"],\
+          ["npm-run-path", "npm:4.0.1"],\
+          ["open", "npm:8.4.2"],\
+          ["ora", "npm:5.3.0"],\
+          ["semver", "npm:7.6.3"],\
+          ["string-width", "npm:4.2.3"],\
+          ["tar-stream", "npm:2.2.0"],\
+          ["tmp", "npm:0.2.3"],\
+          ["tsconfig-paths", "npm:4.2.0"],\
+          ["tslib", "npm:2.8.0"],\
+          ["yargs", "npm:17.7.2"],\
+          ["yargs-parser", "npm:21.1.1"]\
+        ],\
+        "packagePeers": [\
+          "@swc-node/register",\
+          "@swc/core",\
+          "@types/swc-node__register",\
+          "@types/swc__core"\
+        ],\
+        "linkType": "HARD"\
       }],\
       ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:20.0.6", {\
         "packageLocation": "./.yarn/unplugged/nx-virtual-5b35e99c9a/node_modules/nx/",\
@@ -5517,6 +5740,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["root-workspace-0b6124", "workspace:."],\
+          ["@nx/workspace", "npm:20.1.0-canary.20241031-ce05a98"],\
           ["dbgate-serve", "npm:5.5.6"],\
           ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.7"],\
           ["json-stable-stringify", "npm:1.1.1"],\
