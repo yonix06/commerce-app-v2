@@ -5,7 +5,7 @@
     "dockerfile": "./Dockerfile"
   },
   // "image": "yonix06/medusajs-devcontainer:latest",
-  //"workspaceFolder": "../",
+  "workspaceFolder": ".",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -92,6 +92,7 @@
       "type": "bind"
     }
   ],
+  //"containerEnv": { "BASE_IMAGE": "${localEnv:BASE_IMAGE:'node:23.1.0}" },
   "features": {
 //    "ghcr.io/devcontainers-extra/features/prettier:1": {},
 //    "ghcr.io/devcontainers-extra/features/prisma:2": {},
@@ -99,8 +100,8 @@
     "ghcr.io/schlich/devcontainer-features/powerlevel10k:1": {},
     "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {},
     "ghcr.io/devcontainers-extra/features/gh-cli:1": {},
-    "ghcr.io/devcontainers-extra/features/mkcert:1": {},
-    "ghcr.io/devcontainers-extra/features/pre-commit:2": {}
+//    "ghcr.io/devcontainers-extra/features/mkcert:1": {},
+//    "ghcr.io/devcontainers-extra/features/pre-commit:2": {}
 //    "ghcr.io/devcontainers-extra/features/typescript:2": {}
   },
   "forwardPorts": [
@@ -116,6 +117,7 @@
     9000 // medusajs backend+admin
   ],
   "remoteUser": "node",
+  "containerUser": "node",
   "onCreateCommand": "yarn add dbgate-serve && yarn install",
   "postCreateCommand": "screen yarn dbgate-serve & && systemctl start redis-server postgresql"
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace

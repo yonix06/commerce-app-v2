@@ -6,4 +6,4 @@ npm install -g @devcontainers/cli
 
 # Run the devcontainer with devcontainers/cli
 
-cd .. | devcontainer up
+cd .. | devcontainer up --workspace .
