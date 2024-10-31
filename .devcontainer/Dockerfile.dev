@@ -3,10 +3,9 @@ ARG BASE_IMAGE="yonix06/dev"
 ARG VARIANT="node23-yarn4"
 FROM $BASE_IMAGE:$VARIANT
 ENV YARN_VERSION=canary
-RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
-WORKDIR /home/node/app
+RUN mkdir -p /workspace
+WORKDIR /workspace
 RUN corepack enable
-RUN yarn init -w
 
 # Install dev tools & deps
 RUN export DEBIAN_FRONTEND=noninteractive \
@@ -29,8 +28,7 @@ RUN curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
 RUN systemctl enable redis-server postgresql
 
 # Install npm deps
-RUN yarn add nx@latest @medusajs/medusa-cli eslint prettier typescript tslint tslint-to-eslint-config tsx ts-node dotenv
-RUN yarn cache clean --all > /dev/null 2>&1
+RUN yarn dlx add nx medusajs eslint prettier typescript tslint tslint-to-eslint-config tsx ts-node dotenv
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
