@@ -42,3 +42,11 @@ coverage/
 
 # Miscellaneous
 .parcel-cache/
+.devcontainer/tempCodeRunnerFile.sh
+*.out
+*.log
+
+
+
+.nx/cache
+.nx/workspace-data

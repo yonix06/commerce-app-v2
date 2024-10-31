@@ -1,107 +1,141 @@
-#services:
-###driptimez-medusajs-devcontainer:
-###  entrypoint:
-###  - sleep
-###  - infinity
-###  image: mcr.microsoft.com/devcontainers/javascript-node:20
-###  init: true
-###  link: database
-###  volumes:
-###  - type: bind
-###    source: /var/run/docker.sock
-###    target: /var/run/docker.sock
-#  database:
-#    container_name: postgresql
-#    image: postgres
-#    restart: always
-#    environment:
-#      POSTGRES_USER: root
-#      POSTGRES_PASSWORD: root
-#      POSTGRES_DB: api
-#    ports:
-#      - '5432:5432'
-#    volumes:
-#      - ./devdata/postgresql:/var/lib/postgresql/data
-#    # - ./devdata/postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
-#    networks:
-#      - medusajs
-#  pgadmin:
-#    container_name: pgadmin4
-#    image: dpage/pgadmin4
-#    restart: always
-#    environment:
-#      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-#      PGADMIN_DEFAULT_PASSWORD: root
-#    ports:
-#      - '5052:80'
-#    volumes:
-#      - ./devdata/pgadmin:/var/lib/pgadmin
-#    # - ./devdata/pgadmin/servers.json:/pgadmin4/servers.json
-#    networks:
-#      - medusajs
-#  redis:
-#    container_name: redis
-#    image: redis
-#    restart: always
-#    ports:
-#      - '6379:6379'
-#      - '16379:16379'
-#  # command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-#    volumes:
-#      - ./devdata/redis:/data
-#    networks:
-#      - medusajs
-#  mail:
-#    container_name: mail
-#    image: axllent/mailpit
-#    restart: always
-#    volumes:
-#      - ./devdata/mailpit:/data
-#    ports:
-#      - 8025:8025
-#      - 1025:1025
-#    environment:
-#      MP_MAX_MESSAGES: 5000
-#      MP_DATA_FILE: /data/mailpit.db
-#      MP_SMTP_AUTH_ACCEPT_ANY: 1
-#      MP_SMTP_AUTH_ALLOW_INSECURE: 1
-#    networks:
-#      - medusajs
-##minio:
-##  container_name: minio
-##  image: minio/minio
-##  restart: always
-##  ports:
-##    - '9000:9000'
-##    - '9001:9001'
-##  command: minio server /data --console-address ":9001"
-##  volumes:
-##    - ./devdata/minio:/data
-##  environment:
-##    MINIO_ROOT_USER: root
-##    MINIO_ROOT_PASSWORD: root
-##  networks:
-##    - medusajs
-##createbuckets:
-##  image: minio/mc
-##  depends_on:
-#networks:
-#  medusajs:
-#    external: false
-  # name: medusajs
-  # driver: bridge
-  # attachable: true
-  # ipam:
-  #   driver: default
-  #   config:
-  #     - subnet: 172.16.238.0/24
-  #       gateway: 172.16.238.1
-  #     - subnet: 2001:3984:3989::/64
-  #       gateway: 2001:3984:3989::1
-  # ipv6_enabled: true
-  # internal: true
-  # labels:
-  #   com.docker.compose.project: medusajs
+services:
+  store-frontend:
+    container_name: store-frontend
+    #image: yonix06/medusajs:latest
+    build:
+      context: ./store-storefront
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '8000:8000'
+    link: store-database
+    depends_on:
+      - store-database
+      - redis
+    volumes:
+      - ./appdata/medusa/frontend:/app/store-storefront
+    networks:
+      store:
+        ipv4_address: 172.16.238.100
+
+  store-backend:
+    container_name: store-backend
+    #image: yonix06/medusajs:latest
+    build:
+      context: ./store
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '9000:9000'
+      - '7001:7001'
+    link: store-database
+    depends_on:
+      - store-database
+      - redis
+    volumes:
+      - ./appdata/medusa/backend:/app/store
+    networks:
+      store:
+        ipv4_address: 172.16.238.104
+
+  store-database:
+    container_name: store-database
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_USER: medusa
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: medusa-store
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./appdata/postgresql:/var/lib/postgresql/data
+    networks:
+      store:
+        ipv4_address: 172.16.238.101
+
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@store.local
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - '5052:80'
+    volumes:
+      - ./devdata/pgadmin:/var/lib/pgadmin
+      - ./devdata/pgadmin/servers.json:/pgadmin4/servers.json
+    networks:
+      store:
+        ipv4_address: 172.16.238.200
+
+  redis:
+    container_name: redis
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'
+    # Add a password with --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - ./appdata/redis:/data
+    networks:
+      store:
+        ipv4_address: 172.16.238.102
+
+  mail:
+    container_name: mail
+    image: axllent/mailpit
+    restart: always
+    volumes:
+      - ./devdata/mailpit:/data
+    ports:
+      - 8025:8025
+      - 1025:1025
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    networks:
+      store:
+        ipv4_address: 172.16.238.201
+
+  minio:
+    container_name: minio
+    image: minio/minio
+    restart: always
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    command: minio server /data --console-address ":9001"
+    volumes:
+      - ./appdata/minio:/data
+    environment:
+      MINIO_ROOT_USER: medusa
+      MINIO_ROOT_PASSWORD: password
+    networks:
+      store:
+        ipv4_address: 172.16.238.103
+
+networks:
+  store:
+    external: false
+    name: store
+    driver: bridge
+    attachable: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
+          gateway: 172.16.238.1
+        - subnet: 2001:3984:3989::/64
+          gateway: 2001:3984:3989::1
+    ipv6_enabled: true
+    internal: true
+    labels:
+      com.docker.compose.project: store
 
 
 

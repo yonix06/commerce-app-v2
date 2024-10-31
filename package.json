@@ -1,0 +1,11 @@
+{
+  "packageManager": "yarn@4.5.1",
+  "devDependencies": {
+    "dbgate-serve": "^5.5.6",
+    "debug": "^4.3.7",
+    "json-stable-stringify": "^1.1.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "nx": "20.0.6"
+  }
+}

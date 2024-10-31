@@ -1,8 +1,8 @@
 // https://github.com/devcontainers/images/tree/main/src/javascript-node
 {
   "name": "medusajs-devcontainer",
-  "image": "yonix06/medusajs-devcontainer:latest",
-  // "workspaceFolder": "../",
+  "image": "yonix06/dev:devcontainer-db",
+  //"workspaceFolder": ".",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -79,35 +79,38 @@
       "type": "bind"
     },
     {
-      "source": "./appdata/mailpit/lib/",
+      "source": "./devdata/mailpit/lib/",
       "target": "/var/lib/mailpit",
       "type": "bind"
     },
     {
-      "source": "./appdata/mailpit/data/",
+      "source": "./devdata/mailpit/data/",
       "target": "/usr/local/bin/mailpit",
       "type": "bind"
     }
   ],
+  //"containerEnv": { "BASE_IMAGE": "${localEnv:BASE_IMAGE:'node:23.1.0}" },
   "features": {
-    "ghcr.io/devcontainers-extra/features/prettier:1": {},
     "ghcr.io/devcontainers-extra/features/prisma:2": {},
     "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
     "ghcr.io/schlich/devcontainer-features/powerlevel10k:1": {},
-    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {},
     "ghcr.io/devcontainers-extra/features/gh-cli:1": {},
-    "ghcr.io/devcontainers-extra/features/mkcert:1": {},
     "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
-    "ghcr.io/devcontainers-extra/features/typescript:2": {},
-    //"ghcr.io/itsmechlark/features/postgresql:1": {}, // Dans Dockerfile
-    //"ghcr.io/itsmechlark/features/redis-server:1": {}, // Dans Dockerfile
-    "ghcr.io/frntn/devcontainers-features/postman:1": {}
+    "ghcr.io/devcontainers/features/desktop-lite:1": {},
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    "ghcr.io/frntn/devcontainers-features/postman:1": {},
+    "ghcr.io/itsmechlark/features/postgresql:1": {},
+    "ghcr.io/devcontainers-extra/features/devcontainers-cli:1": {},
+    "ghcr.io/devcontainers-extra/features/gitsign-credential-cache:1": {},
+    "ghcr.io/devcontainers-extra/features/grpcurl-asdf:2": {},
+    "ghcr.io/devcontainers-extra/features/vercel-cli:1": {}
   },
   "forwardPorts": [
     // 80, // reverse proxy - //TODO: add reverse proxy
     1025, // mailpit
     5432, // postgresql
     3000, // dbgate
+    6080, // web desktop
     6379, // redis
     8000, // medusajs storefront
     8025, // mailpit ui
@@ -115,9 +118,14 @@
     7379, // redis ui
     9000 // medusajs backend+admin
   ],
-  "remoteUser": "node",
-  "onCreateCommand": "yarn set version from sources && yarn install",
-  "postCreateCommand": "dbgate-serve && systemctl start redis-server postgresql"
+  "portsAttributes": {
+    "6080": {
+      "label": "VNCpass:vscode"
+    }
+  },
+  "remoteUser": "root",
+  "containerUser": "root",
+  "onCreateCommand": "yarn set version canary && screen yarn dbgate-serve & && systemctl start redis-server postgresql mailpit",
+  "postCreateCommand": "sudo chown root:docker /var/run/docker.sock"
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
-  // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock",
 }
