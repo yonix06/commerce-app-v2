@@ -1,14 +1,15 @@
 services:
   dev:
     image: yonix06/dev:devcontainer-db
+    privileged: true
     entrypoint:
-     - sleep 
+     - sleep
      - infinity
     init: true
     volumes:
       - ./apps:/workspaces:cached
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./appdata/postgresql:/var/lib/postgresql
+      - ./appdata/postgresql:/var/lib/postgresql:rwx
     ## ports:
     ##   - 8000:8000
     ##   - 9000:9000
@@ -32,15 +33,15 @@ services:
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
 
   pgadmin:
-  container_name: pgadmin4
-  image: dpage/pgadmin4
-  restart: always
-  environment:
-    PGADMIN_DEFAULT_EMAIL: admin@store.medusa
-    PGADMIN_DEFAULT_PASSWORD: password
-  ports:
-    - '5052:80'
-  volumes:
-    - ./devdata/pgadmin/lib:/var/lib/pgadmin
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@store.medusa
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - '5052:80'
+    volumes:
+      - ./devdata/pgadmin/lib:/var/lib/pgadmin
 
 
