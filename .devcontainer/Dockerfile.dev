@@ -28,7 +28,8 @@ RUN curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
 RUN systemctl enable redis-server postgresql
 
 # Install npm deps
-RUN yarn add nx @medusajs/medusa-cli eslint prettier typescript tslint tslint-to-eslint-config tsx ts-node dotenv
+RUN yarn init -w
+RUN yarn add nx@latest @medusajs/medusa-cli eslint prettier typescript tslint tslint-to-eslint-config tsx ts-node dotenv
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
