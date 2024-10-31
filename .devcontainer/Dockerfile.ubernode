@@ -84,6 +84,6 @@ RUN set -ex \
 ##  && rm -rf /tmp/berry
 ENV YARN_VERSION=canary
 RUN yarn policies set-version $YARN_VERSION
-COPY ./docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD [ "node" ]
