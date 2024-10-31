@@ -1,0 +1,39 @@
+services:
+  app:
+    entrypoint:
+    - sleep
+    - infinity
+    image: yonix06/dev:devcontainer-db
+    init: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./appdata/postgresql:/var/lib/postgresql:rw
+
+  mail:
+    container_name: mail
+    image: axllent/mailpit
+    restart: always
+    volumes:
+      - ./devdata/mailpit:/data:rw
+    ports:
+      - 8025:8025
+      - 1025:1025
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
+  pgadmin:
+  container_name: pgadmin4
+  image: dpage/pgadmin4
+  restart: always
+  environment:
+    PGADMIN_DEFAULT_EMAIL: admin@store.local
+    PGADMIN_DEFAULT_PASSWORD: password
+  ports:
+    - '5052:80'
+  volumes:
+    - ./devdata/pgadmin/lib:/var/lib/pgadmin
+
+
