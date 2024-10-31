@@ -2,7 +2,7 @@
 {
   "name": "medusajs-devcontainer",
   "image": "yonix06/dev:devcontainer-db",
-  "workspaceFolder": ".",
+  //"workspaceFolder": ".",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -79,12 +79,12 @@
       "type": "bind"
     },
     {
-      "source": "./appdata/mailpit/lib/",
+      "source": "./devdata/mailpit/lib/",
       "target": "/var/lib/mailpit",
       "type": "bind"
     },
     {
-      "source": "./appdata/mailpit/data/",
+      "source": "./devdata/mailpit/data/",
       "target": "/usr/local/bin/mailpit",
       "type": "bind"
     }
@@ -125,8 +125,7 @@
   },
   "remoteUser": "root",
   "containerUser": "root",
-  "onCreateCommand": "yarn set version canary && yarn install",
-  "postCreateCommand": "screen yarn dbgate-serve & && systemctl start redis-server postgresql mailpit"
+  "onCreateCommand": "yarn set version canary && screen yarn dbgate-serve & && systemctl start redis-server postgresql mailpit",
+  "postCreateCommand": "sudo chown root:docker /var/run/docker.sock"
   // "onCreateCommand": "sudo systemctl start redis-server postgresql && yarn install" // Uncomment after setting up NX workspace
-  // "postCreateCommand": "sudo chown root:docker /var/run/docker.sock"
 }
