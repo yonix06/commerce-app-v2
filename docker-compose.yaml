@@ -3,7 +3,7 @@ services:
     container_name: store-frontend
     #image: yonix06/medusajs:latest
     build:
-      context: ./store-storefront
+      context: ./apps/store-storefront
       dockerfile: Dockerfile
     restart: always
     ports:
@@ -21,7 +21,7 @@ services:
     container_name: store-backend
     #image: yonix06/medusajs:latest
     build:
-      context: ./store
+      context: ./apps/store
       dockerfile: Dockerfile
     restart: always
     ports:

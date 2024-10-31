@@ -4,10 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "driptimez"
+			"path": "apps/store"
 		},
 		{
-			"path": "driptimez-storefront"
+			"path": "apps/store-storefront"
 		}
 	],
 	"settings": {
@@ -24,7 +24,11 @@
 		"scm.alwaysShowRepositories": true,
 		"scm.alwaysShowActions": true,
 		"conventionalCommits.scopes": [
-			"Global"
+			"Worspace",
+			"Dev",
+			"Frontend",
+			"Backend",
+			"Dependencies"
 		]
 	}
 }
