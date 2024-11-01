@@ -35,6 +35,7 @@ services:
     privileged: true
     image: postgres:17
     restart: always
+    runtime: nvidia
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
@@ -43,7 +44,7 @@ services:
       - '5432:5432'
     volumes:
       - ./appdata/postgresql/lib:/var/lib/postgresql/data:rwx
-      - ./appdata/postgresql/etc:/etc/postgresql/:rwx
+
 
   mail:
     container_name: mail
