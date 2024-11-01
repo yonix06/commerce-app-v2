@@ -9,7 +9,7 @@ RUN corepack enable
 
 # Install dev tools & deps
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get update && apt-get -y install postgresql-common git curl wget mkcert bash zsh ca-certificates openssh-client software-properties-common \
+    && apt-get update && apt-get -y install nano postgresql-common git curl wget mkcert bash zsh ca-certificates openssh-client software-properties-common \
     redis webdis libpq5 postgresql postgresql-client postgresql-client-common fonts-powerline \
     && apt-get autoremove -y
 USER node
