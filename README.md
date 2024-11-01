@@ -15,5 +15,35 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```sh
-yarn install
+yarn set version canary && yarn install
 ```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+### Using DevContainers
+
+1. **Open the project in a DevContainer**
+   - Click on the "Open in Dev Containers" button at the top of this README.
+   - This will open the project in a new DevContainer with all the necessary configurations.
+
+2. **Build the DevContainer**
+   - If you are prompted to rebuild or reopen the project in a container, click "Yes" to rebuild.
+   - This will install all the necessary dependencies and tools.
+
+3. **Launch the DevContainer**
+   - Once the DevContainer is built, you can launch it.
+   - Open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P) and type "Dev Containers: Reopen in Container".
+   - This will restart the DevContainer and launch it.
+
+4. **Run the MedusaJS Server**
+   - Once the DevContainer is launched, open a new terminal within VS Code.
+   - Run the following command to start the MedusaJS server:
+     ```sh
+     yarn run dev
+     ```
+     This will start the MedusaJS server on your local machine.
+     - You can access the server at `http://localhost:9000` and `http://localhost:8000` in your web browser.
+
+

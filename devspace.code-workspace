@@ -4,10 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "apps/store"
-		},
-		{
-			"path": "apps/store-storefront"
+			"path": "apps"
 		}
 	],
 	"settings": {
@@ -24,7 +21,9 @@
 		"scm.alwaysShowRepositories": true,
 		"scm.alwaysShowActions": true,
 		"conventionalCommits.scopes": [
-			"Worspace",
+			"Workspace",
+			"Dockerfile",
+			"Docker Compose",
 			"Dev",
 			"Frontend",
 			"Backend",
