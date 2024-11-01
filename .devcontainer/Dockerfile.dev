@@ -3,6 +3,7 @@ ARG BASE_IMAGE="yonix06/dev"
 ARG VARIANT="node23-yarn4"
 FROM $BASE_IMAGE:$VARIANT
 ENV YARN_VERSION=canary
+USER root
 RUN mkdir -p /workspace
 WORKDIR /workspace
 RUN corepack enable
@@ -10,14 +11,9 @@ RUN corepack enable
 # Install dev tools & deps
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update && apt-get -y install nano postgresql-common git curl wget mkcert bash zsh ca-certificates openssh-client software-properties-common \
-    redis webdis libpq5 postgresql postgresql-client postgresql-client-common fonts-powerline \
+    redis libpq5 postgresql postgresql-client postgresql-client-common fonts-powerline \
     && apt-get autoremove -y
-USER node
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-RUN git clone https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
-RUN echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-USER root
+
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN git clone https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
 RUN echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
@@ -25,6 +21,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | b
 RUN chsh -s /bin/zsh
 RUN curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
 RUN curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+
 # Enable Dev Services
 RUN systemctl enable redis-server postgresql
 
@@ -42,6 +39,6 @@ EXPOSE 7001
 EXPOSE 8000
 EXPOSE 9000
 
-VOLUME /home/node/app
+VOLUME /workspace
 
 CMD [ "zsh" ]
