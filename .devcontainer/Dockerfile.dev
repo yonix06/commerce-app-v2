@@ -9,12 +9,12 @@ WORKDIR /workspace
 RUN corepack enable
 
 # Add some sources
-RUN apt-get install -y postgresql-common ca-certificates curl
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get update && apt-get -y install postgresql-common ca-certificates curl
 RUN sh -c "$(/usr/share/postgresql-common/pgdg/apt.postgresql.org.sh)"
 
 # Install dev tools & deps
-RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get update && apt-get -y install nano git wget mkcert bash zsh openssh-client software-properties-common \
+RUN apt-get -y install nano git wget mkcert bash zsh openssh-client software-properties-common \
     redis-server libpq5 postgresql-17 fonts-powerline \
     && apt-get autoremove -y
 
