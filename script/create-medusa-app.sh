@@ -3,8 +3,8 @@
 # Create a new Medusa app using Medusa CLI with the specified name and starter URL, and disable interactive mode
 # medusa new driptimez https://github.com/tinloof/medusa-b2c-starter -y --v2
 
-cd .. | yarn add -D @medusajs/telemetry fs-exists-cached
-cd .. | yarn create medusa-app@latest --directory-path ./apps --verbose --db-url postgres://postgres:password@store-database:5432
+cd .. | yarn add -D @medusajs/telemetry fs-exists-cached resolve-cwd execa awilix react-hook-form zod react
+cd .. | yarn create medusa-app@latest --directory-path ./apps --verbose --db-url postgres://postgres:password@store-database:5432 --with-nextjs-starter
 
 # Install dependencies and initialize the Medusa app using Yarn
 # cd store || exit

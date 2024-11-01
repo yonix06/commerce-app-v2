@@ -4,7 +4,7 @@
 cd .. | yarn set version canary && yarn install --immutable
 
 # Install Medusa CLI globally using Yarn
-#cd .. | yarn add @medusajs/medusa-cli
+#cd .. | yarn add -D @medusajs/medusa-cli
 
 # It's better when it's set up. And yes, uses zsh.
 cp .p10k.zsh ~/
@@ -12,8 +12,8 @@ cp .zshrc ~/
 source ~/.zshrc
 
 # Dev on WSL2 / Need sudo on Ubuntu
-chmod 777 -R appdata
-chmod 777 -R devdata
+chmod 777 -R ../appdata
+chmod 777 -R ../devdata
 
 ## Install & Start Tilt
 #curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
