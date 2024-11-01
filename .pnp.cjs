@@ -33,6 +33,7 @@ const RAW_RUNTIME_STATE =
           ["debug", "virtual:530a6a9c0e5ae34657aeea3e54aa25fc05458516634a927a7783385e4bea70f8bbb36ed12d2282b1e14344a3f00df61544a06445da03ef657b7802ecb9c08121#npm:4.3.7"],\
           ["dotenv", "npm:16.4.5"],\
           ["eslint", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:9.13.0"],\
+          ["fs-exists-cached", "npm:1.0.0"],\
           ["json-stable-stringify", "npm:1.1.1"],\
           ["lodash", "npm:4.17.21"],\
           ["moment", "npm:2.30.1"],\
@@ -11170,6 +11171,7 @@ const RAW_RUNTIME_STATE =
           ["debug", "virtual:530a6a9c0e5ae34657aeea3e54aa25fc05458516634a927a7783385e4bea70f8bbb36ed12d2282b1e14344a3f00df61544a06445da03ef657b7802ecb9c08121#npm:4.3.7"],\
           ["dotenv", "npm:16.4.5"],\
           ["eslint", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:9.13.0"],\
+          ["fs-exists-cached", "npm:1.0.0"],\
           ["json-stable-stringify", "npm:1.1.1"],\
           ["lodash", "npm:4.17.21"],\
           ["moment", "npm:2.30.1"],\
