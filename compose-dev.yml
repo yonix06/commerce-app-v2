@@ -11,16 +11,21 @@ services:
      - sleep
      - infinity
     init: true
+    command: nvidia-smi
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     volumes:
       - .:/workspace:cached
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./appdata/postgresql:/var/lib/postgresql:cached
     ports:
       - 8000:8000
       - 9000:9000
       - 7001:7001
-      - 5432:5432
-      - 6379:6379
   
   store-database:
     container_name: store-database

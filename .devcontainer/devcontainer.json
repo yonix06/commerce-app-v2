@@ -64,8 +64,9 @@
     }
   },
   "features": {
-    "ghcr.io/devcontainers-extra/features/prisma:2": {},
-    "ghcr.io/devcontainers/features/nvidia-cuda:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers-extra/features/circleci-cli:1": {},
+    "ghcr.io/devcontainers-extra/features/drone-cli:1": {}
   },
   "forwardPorts": [
     8000, // medusajs storefront
