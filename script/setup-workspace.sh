@@ -14,13 +14,14 @@ cd .. | tilt up
 redis-server
 
 # Postgres config
-LANGUAGE = en_US.UTF-8
-LC_ALL = en_US.UTF-8
-LANG = en_US.UTF-8
-echo "listen_addresses = '*'" | tee -a /etc/postgresql/17/main/postgresql.conf 
-sed -i '/^host/s/ident/md5/' /etc/postgresql/17/main/pg_hba.conf
-sed -i '/^local/s/peer/trust/' /etc/postgresql/17/main/pg_hba.conf
-echo "host all all 0.0.0.0/0 md5" | tee -a /etc/postgresql/17/main/pg_hba.conf
+set LANGUAGE = en_US.UTF-8
+set LC_ALL = en_US.UTF-8
+set LANG = en_US.UTF-8
+# 
+echo "listen_addresses = '*'" | tee -a /etc/postgresql/15/main/postgresql.conf 
+sed -i '/^host/s/ident/md5/' /etc/postgresql/15/main/pg_ident.conf
+sed -i '/^local/s/peer/trust/' /etc/postgresql/15/main/pg_hba.conf
+echo "host all all 0.0.0.0/0 md5" | tee -a /etc/postgresql/15/main/pg_hba.conf
 # ufw allow 5432/tcp
 service postgresql restart
 psql

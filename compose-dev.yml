@@ -21,6 +21,19 @@ services:
       - 7001:7001
       - 5432:5432
       - 6379:6379
+  
+  store-database:
+    container_name: store-database
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./appdata/postgresql:/var/lib/postgresql/data:rwx
 
   mail:
     container_name: mail

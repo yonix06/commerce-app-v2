@@ -68,8 +68,6 @@
     "ghcr.io/devcontainers/features/nvidia-cuda:1": {}
   },
   "forwardPorts": [
-    5432, // postgresql
-    6379, // redis
     8000, // medusajs storefront
     7001, // medusajs backend api
     9000 // medusajs backend+admin
