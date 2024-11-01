@@ -1,1 +1,1 @@
-docker_compose("./docker-compose.yaml")
+docker_compose("./compose-dev.yml")

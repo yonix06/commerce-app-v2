@@ -13,7 +13,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update 
 RUN apt-get -y install apt-utils bash \
     nano git wget mkcert bash zsh openssh-client \
-    fonts-powerline \
+    fonts-powerline postgresql-client \
     && apt-get autoremove -y
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

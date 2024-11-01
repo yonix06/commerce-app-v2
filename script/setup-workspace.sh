@@ -10,6 +10,10 @@ cp .p10k.zsh ~/
 cp .zshrc ~/
 source ~/.zshrc
 
+# Dev on WSL2
+chmod 777 -R appdata
+chmod 777 -R devdata
+
 ## Install & Start Tilt
 #curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 #cd .. | tilt up

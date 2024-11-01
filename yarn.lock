@@ -9763,6 +9763,7 @@ __metadata:
     debug: "npm:^4.3.7"
     dotenv: "npm:^16.4.5"
     eslint: "npm:^9.13.0"
+    fs-exists-cached: "npm:^1.0.0"
     json-stable-stringify: "npm:^1.1.1"
     lodash: "npm:^4.17.21"
     moment: "npm:^2.30.1"

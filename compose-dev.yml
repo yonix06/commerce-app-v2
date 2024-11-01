@@ -12,6 +12,16 @@ services:
      - infinity
     init: true
     runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              device_ids: ["GPU-322f733b-33b7-4016-e0a5-a3b70d59a35b"]
+              options:
+                - "capabilities=compute,video,utility,compat32"
+
     volumes:
       - .:/workspace:cached
       - /var/run/docker.sock:/var/run/docker.sock
@@ -22,6 +32,7 @@ services:
   
   store-database:
     container_name: store-database
+    privileged: true
     image: postgres:17
     restart: always
     environment:
@@ -31,7 +42,8 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - ./appdata/postgresql:/var/lib/postgresql:rwx
+      - ./appdata/postgresql/lib:/var/lib/postgresql/data:rwx
+      - ./appdata/postgresql/etc:/etc/postgresql/:rwx
 
   mail:
     container_name: mail
@@ -50,6 +62,7 @@ services:
 
   pgadmin:
     container_name: pgadmin4
+    privileged: true
     image: dpage/pgadmin4
     restart: always
     environment:
