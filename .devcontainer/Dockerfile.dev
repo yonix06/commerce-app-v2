@@ -9,13 +9,14 @@ WORKDIR /workspace
 RUN corepack enable
 
 # Add some sources
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-RUN curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+RUN apt-get install -y postgresql-common ca-certificates curl && /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 
+# RUN sh -c 'echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+# RUN curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
 
 # Install dev tools & deps
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get update && apt-get -y install nano postgresql-common git curl wget mkcert bash zsh ca-certificates openssh-client software-properties-common \
+    && apt-get update && apt-get -y install nano git wget mkcert bash zsh openssh-client software-properties-common \
     redis-server libpq5 postgresql-17 postgresql-client postgresql-client-common fonts-powerline \
     && apt-get autoremove -y
 
