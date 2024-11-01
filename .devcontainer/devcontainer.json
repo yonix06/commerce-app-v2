@@ -65,9 +65,7 @@
   },
   "features": {
     "ghcr.io/devcontainers-extra/features/prisma:2": {},
-    "ghcr.io/itsmechlark/features/postgresql:1": {},
-    "ghcr.io/devcontainers/features/nvidia-cuda:1": {},
-    "ghcr.io/itsmechlark/features/redis-server:1": {}
+    "ghcr.io/devcontainers/features/nvidia-cuda:1": {}
   },
   "forwardPorts": [
     5432, // postgresql
