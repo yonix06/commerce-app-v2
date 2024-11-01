@@ -1,6 +1,11 @@
 services:
   dev:
-    image: yonix06/dev:devcontainer-db
+    # image: yonix06/dev:devcontainer-db
+    build:
+      context: .
+      dockerfile: './.devcontainer/Dockerfile.dev'
+    container_name: dev
+    restart: always
     privileged: true
     entrypoint:
      - sleep
