@@ -28,6 +28,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@medusajs/medusa-cli", "npm:1.3.23"],\
+          ["@medusajs/telemetry", "npm:2.0.1"],\
           ["@nx/workspace", "npm:20.1.0-canary.20241031-ce05a98"],\
           ["dbgate-serve", "npm:5.5.6"],\
           ["debug", "virtual:530a6a9c0e5ae34657aeea3e54aa25fc05458516634a927a7783385e4bea70f8bbb36ed12d2282b1e14344a3f00df61544a06445da03ef657b7802ecb9c08121#npm:4.3.7"],\
@@ -1262,6 +1263,25 @@ const RAW_RUNTIME_STATE =
           ["ulid", "npm:2.3.0"],\
           ["winston", "npm:3.15.0"],\
           ["yargs", "npm:15.4.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@medusajs/telemetry", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "./.yarn/unplugged/@medusajs-telemetry-npm-2.0.1-45d9893148/node_modules/@medusajs/telemetry/",\
+        "packageDependencies": [\
+          ["@medusajs/telemetry", "npm:2.0.1"],\
+          ["@babel/runtime", "npm:7.26.0"],\
+          ["axios", "npm:0.21.4"],\
+          ["axios-retry", "npm:3.9.1"],\
+          ["boxen", "npm:5.1.2"],\
+          ["ci-info", "npm:3.9.0"],\
+          ["configstore", "npm:5.0.1"],\
+          ["global", "npm:4.4.0"],\
+          ["is-docker", "npm:2.2.1"],\
+          ["remove-trailing-slash", "npm:0.1.1"],\
+          ["uuid", "npm:8.3.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11166,6 +11186,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["root-workspace-0b6124", "workspace:."],\
           ["@medusajs/medusa-cli", "npm:1.3.23"],\
+          ["@medusajs/telemetry", "npm:2.0.1"],\
           ["@nx/workspace", "npm:20.1.0-canary.20241031-ce05a98"],\
           ["dbgate-serve", "npm:5.5.6"],\
           ["debug", "virtual:530a6a9c0e5ae34657aeea3e54aa25fc05458516634a927a7783385e4bea70f8bbb36ed12d2282b1e14344a3f00df61544a06445da03ef657b7802ecb9c08121#npm:4.3.7"],\
