@@ -11,7 +11,7 @@ RUN corepack enable
 # Add some sources
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update && apt-get -y install postgresql-common ca-certificates curl
-RUN sh -c "$(/usr/share/postgresql-common/pgdg/apt.postgresql.org.sh)"
+RUN /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 
 # Install dev tools & deps
 RUN apt-get -y install nano git wget mkcert bash zsh openssh-client software-properties-common \
