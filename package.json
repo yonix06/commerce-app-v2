@@ -1,11 +1,11 @@
 {
-"scripts": {
-  "dbgate": "dbgate-serve -p 8001",
-  "format": "nx format:write",
-  "lint": "nx affected --target=lint --parallel=3",
-  "check": "nx affected --target=lint --parallel=3",
-  "test": "nx affected --target=test --parallel=3 --configuration=ci",
-  "build": "nx affected --target=build --parallel=3"
+  "scripts": {
+    "dbgate": "dbgate-serve -p 8001",
+    "format": "nx format:write",
+    "lint": "nx affected --target=lint --parallel=3",
+    "check": "nx affected --target=lint --parallel=3",
+    "test": "nx affected --target=test --parallel=3 --configuration=ci",
+    "build": "nx affected --target=build --parallel=3"
   },
   "packageManager": "yarn@4.5.1",
   "devDependencies": {
