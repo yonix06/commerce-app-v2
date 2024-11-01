@@ -15,9 +15,9 @@ RUN curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmo
 
 # Install dev tools & deps
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt update && apt -y install nano postgresql-common git curl wget mkcert bash zsh ca-certificates openssh-client software-properties-common \
+    && apt-get update && apt-get -y install nano postgresql-common git curl wget mkcert bash zsh ca-certificates openssh-client software-properties-common \
     redis-server libpq5 postgresql-17 postgresql-client postgresql-client-common fonts-powerline \
-    && apt autoremove -y
+    && apt-get autoremove -y
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN git clone https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
@@ -34,7 +34,7 @@ RUN yarn init -w
 RUN yarn add nx@latest @medusajs/medusa-cli eslint prettier typescript tslint tslint-to-eslint-config tsx ts-node dotenv
 
 # Clean up
-RUN apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # [5432]-postgresql [6379]-redis [8000]-medusajs-storefront [7001]-medusajs-backend-api [9000]-medusajs-backend+admin
 EXPOSE 5432
