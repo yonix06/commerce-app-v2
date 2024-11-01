@@ -12,6 +12,16 @@ services:
      - infinity
     init: true
     runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              device_ids: ["GPU-322f733b-33b7-4016-e0a5-a3b70d59a35b"]
+              options:
+                - "capabilities=compute,video,utility,compat32"
+
     volumes:
       - .:/workspace:cached
       - /var/run/docker.sock:/var/run/docker.sock
