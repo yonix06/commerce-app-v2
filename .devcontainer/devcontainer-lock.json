@@ -1,29 +1,19 @@
 {
   "features": {
+    "ghcr.io/devcontainers-extra/features/circleci-cli:1": {
+      "version": "1.0.7",
+      "resolved": "ghcr.io/devcontainers-extra/features/circleci-cli@sha256:36a48b8dbd0cf5c2f6677dad0b02b4ec6274135d2334671bbeae92a96bfd8485",
+      "integrity": "sha256:36a48b8dbd0cf5c2f6677dad0b02b4ec6274135d2334671bbeae92a96bfd8485"
+    },
+    "ghcr.io/devcontainers-extra/features/drone-cli:1": {
+      "version": "1.0.7",
+      "resolved": "ghcr.io/devcontainers-extra/features/drone-cli@sha256:0d0997e223d20039b369175d2b5a989ddabdaaa3f753e163987de0c0f1648f7f",
+      "integrity": "sha256:0d0997e223d20039b369175d2b5a989ddabdaaa3f753e163987de0c0f1648f7f"
+    },
     "ghcr.io/devcontainers-extra/features/gh-cli:1": {
       "version": "1.0.12",
       "resolved": "ghcr.io/devcontainers-extra/features/gh-cli@sha256:b87994e6212c3288f585136bf3b25bd208738fd1398095c380cdd763754adf8c",
       "integrity": "sha256:b87994e6212c3288f585136bf3b25bd208738fd1398095c380cdd763754adf8c"
-    },
-    "ghcr.io/devcontainers-extra/features/prisma:2": {
-      "version": "2.0.15",
-      "resolved": "ghcr.io/devcontainers-extra/features/prisma@sha256:782ee94dc24d5d77097b36ca279370d657ad0ee3354689da5d7b4ce282595c4e",
-      "integrity": "sha256:782ee94dc24d5d77097b36ca279370d657ad0ee3354689da5d7b4ce282595c4e"
-    },
-    "ghcr.io/devcontainers/features/nvidia-cuda:1": {
-      "version": "1.1.3",
-      "resolved": "ghcr.io/devcontainers/features/nvidia-cuda@sha256:12e6bfd6c87ecc5af38f64ef3251b5a874287a14c35f2293f28a85c388c28761",
-      "integrity": "sha256:12e6bfd6c87ecc5af38f64ef3251b5a874287a14c35f2293f28a85c388c28761"
-    },
-    "ghcr.io/itsmechlark/features/postgresql:1": {
-      "version": "1.5.0",
-      "resolved": "ghcr.io/itsmechlark/features/postgresql@sha256:a899d480c4a00dde33031f7928784ae0fe92a924d30c273c3583515f172f46f3",
-      "integrity": "sha256:a899d480c4a00dde33031f7928784ae0fe92a924d30c273c3583515f172f46f3"
-    },
-    "ghcr.io/itsmechlark/features/redis-server:1": {
-      "version": "1.1.0",
-      "resolved": "ghcr.io/itsmechlark/features/redis-server@sha256:3c060bbbb0b86a8e23493c86d6aa07516931c9b65592622c9be65faba7aae7a9",
-      "integrity": "sha256:3c060bbbb0b86a8e23493c86d6aa07516931c9b65592622c9be65faba7aae7a9"
     },
     "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {
       "version": "0.0.3",

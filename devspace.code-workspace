@@ -28,6 +28,43 @@
 			"Frontend",
 			"Backend",
 			"Dependencies"
+		],
+		"eslint.format.enable": true,
+		"prettier.prettierPath": ".yarn/unplugged/prettier-npm-3.3.3-e811f023f3/node_modules/prettier"
+	},
+	"extensions": {
+		"recommendations": [
+			"maciejdems.add-to-gitignore",
+			"vivaxy.vscode-conventional-commits",
+			"editorconfig.editorconfig",
+			"naumovs.color-highlight",
+			"cweijan.dbclient-jdbc",
+			"mhutchie.git-graph",
+			"donjayamanne.githistory",
+			"dbaeumer.vscode-eslint",
+			"usernamehw.errorlens",
+			"esbenp.prettier-vscode",
+			"postman.postman-for-vscode",
+			"christian-kohler.path-intellisense",
+			"ms-ossdata.vscode-postgresql",
+			"nrwl.angular-console",
+			"humao.rest-client",
+			"gruntfuggly.todo-tree",
+			"continue.continue",
+			"miku3920.vscode-render-special-chars",
+			"jevakallio.vscode-live-frame",
+			"zignd.html-css-class-completion",
+			"visualstudioexptteam.intellicode-api-usage-examples",
+			"visualstudioexptteam.vscodeintellicode-completions",
+			"oderwat.indent-rainbow",
+			"cweijan.vscode-redis-client",
+			"c0der-himel.remove-console-log",
+			"rvest.vs-code-prettier-eslint",
+			"davidanson.vscode-markdownlint",
+			"peterschmalfeldt.explorer-exclude",
+			"formulahendry.code-runner",
+			"aaron-bond.better-comments",
+			"ms-vscode-remote.remote-containers"
 		]
 	}
 }

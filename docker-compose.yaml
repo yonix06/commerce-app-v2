@@ -36,28 +36,28 @@ services:
       store:
         ipv4_address: 172.16.238.104
 
-  store-database:
-    container_name: store-database
-    image: postgres:17
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: medusa-store
-    ports:
-      - '5432:5432'
-    volumes:
-      - ./appdata/postgresql:/var/lib/postgresql/data
-    networks:
-      store:
-        ipv4_address: 172.16.238.101
+#  store-database:
+#    container_name: store-database
+#    image: postgres:17
+#    restart: always
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: password
+#      POSTGRES_DB: postgres
+#    ports:
+#      - '5432:5432'
+#    volumes:
+#      - ./appdata/postgresql:/var/lib/postgresql:rwx
+#    networks:
+#      store:
+#        ipv4_address: 172.16.238.101
 
   redis:
     container_name: redis
     image: redis
     restart: always
     ports:
-      - '6379:6379'
+      - '6479:6379'
     # Add a password with --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
     command: redis-server --save 20 1 --loglevel warning
     volumes:
@@ -71,8 +71,8 @@ services:
     image: minio/minio
     restart: always
     ports:
-      - '9000:9000'
-      - '9001:9001'
+      - '9090:9000'
+      - '9091:9001'
     command: minio server /data --console-address ":9001"
     volumes:
       - ./appdata/minio:/data

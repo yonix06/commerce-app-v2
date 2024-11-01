@@ -59,17 +59,21 @@
         "Postman.postman-for-vscode",
         "cweijan.dbclient-jdbc",
         "ms-azuretools.vscode-docker",
-        "docker.docker-vscode-extension"
+        "docker.docker-vscode-extension",
+        "maciejdems.add-to-gitignore",
+        "cweijan.vscode-redis-client",
+        "rvest.vs-code-prettier-eslint",
+        "DavidAnson.vscode-markdownlint",
+        "PeterSchmalfeldt.explorer-exclude",
+        "formulahendry.code-runner"
       ]
     }
   },
   "features": {
-    "ghcr.io/devcontainers-extra/features/prisma:2": {},
-    "ghcr.io/devcontainers/features/nvidia-cuda:1": {}
+    "ghcr.io/devcontainers-extra/features/circleci-cli:1": {},
+    "ghcr.io/devcontainers-extra/features/drone-cli:1": {}
   },
   "forwardPorts": [
-    5432, // postgresql
-    6379, // redis
     8000, // medusajs storefront
     7001, // medusajs backend api
     9000 // medusajs backend+admin
