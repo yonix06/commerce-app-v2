@@ -70,20 +70,13 @@ RUN set -ex \
   && yarn --version \
   && rm -rf /tmp/*
 
+ENV YARN_VERSION=canary
+RUN yarn policies set-version $YARN_VERSION
+
 # Activate corepack to use yarn v4
 RUN set -ex \
     && corepack enable
 
-# Setup and install yarn
-##COPY berry/ /tmp/berry/
-##RUN set -ex \
-##  && cd /tmp/berry \
-##  && yarn build:cli \
-##  # smoke test
-##  && yarn --version
-##  && rm -rf /tmp/berry
-ENV YARN_VERSION=canary
-RUN yarn policies set-version $YARN_VERSION
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
+COPY node-docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["node-docker-entrypoint.sh"]
 CMD [ "node" ]

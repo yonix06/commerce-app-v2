@@ -1,39 +1,37 @@
 services:
   store-frontend:
     container_name: store-frontend
-    #image: yonix06/medusajs:latest
+    #image: yonix06/dev:store-frontend
     build:
-      context: ./store-storefront
+      context: ./apps/store-storefront
       dockerfile: Dockerfile
     restart: always
     ports:
       - '8000:8000'
-    link: store-database
     depends_on:
       - store-database
       - redis
     volumes:
-      - ./appdata/medusa/frontend:/app/store-storefront
+      - ./appdata/medusa/frontend:/apps/store-storefront
     networks:
       store:
         ipv4_address: 172.16.238.100
 
   store-backend:
     container_name: store-backend
-    #image: yonix06/medusajs:latest
+    #image: yonix06/dev:store-backend
     build:
-      context: ./store
+      context: ./apps/store
       dockerfile: Dockerfile
     restart: always
     ports:
       - '9000:9000'
       - '7001:7001'
-    link: store-database
     depends_on:
       - store-database
       - redis
     volumes:
-      - ./appdata/medusa/backend:/app/store
+      - ./appdata/medusa/backend:/apps/store
     networks:
       store:
         ipv4_address: 172.16.238.104
@@ -43,7 +41,7 @@ services:
     image: postgres:17
     restart: always
     environment:
-      POSTGRES_USER: medusa
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: medusa-store
     ports:
@@ -53,22 +51,6 @@ services:
     networks:
       store:
         ipv4_address: 172.16.238.101
-
-  pgadmin:
-    container_name: pgadmin4
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@store.local
-      PGADMIN_DEFAULT_PASSWORD: password
-    ports:
-      - '5052:80'
-    volumes:
-      - ./devdata/pgadmin:/var/lib/pgadmin
-      - ./devdata/pgadmin/servers.json:/pgadmin4/servers.json
-    networks:
-      store:
-        ipv4_address: 172.16.238.200
 
   redis:
     container_name: redis
@@ -83,24 +65,6 @@ services:
     networks:
       store:
         ipv4_address: 172.16.238.102
-
-  mail:
-    container_name: mail
-    image: axllent/mailpit
-    restart: always
-    volumes:
-      - ./devdata/mailpit:/data
-    ports:
-      - 8025:8025
-      - 1025:1025
-    environment:
-      MP_MAX_MESSAGES: 5000
-      MP_DATA_FILE: /data/mailpit.db
-      MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1
-    networks:
-      store:
-        ipv4_address: 172.16.238.201
 
   minio:
     container_name: minio
@@ -130,10 +94,6 @@ networks:
       config:
         - subnet: 172.16.238.0/24
           gateway: 172.16.238.1
-        - subnet: 2001:3984:3989::/64
-          gateway: 2001:3984:3989::1
-    ipv6_enabled: true
-    internal: true
     labels:
       com.docker.compose.project: store
 
