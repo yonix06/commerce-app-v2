@@ -1,0 +1,24 @@
+{
+  "features": {
+    "ghcr.io/devcontainers-extra/features/circleci-cli:1": {
+      "version": "1.0.7",
+      "resolved": "ghcr.io/devcontainers-extra/features/circleci-cli@sha256:36a48b8dbd0cf5c2f6677dad0b02b4ec6274135d2334671bbeae92a96bfd8485",
+      "integrity": "sha256:36a48b8dbd0cf5c2f6677dad0b02b4ec6274135d2334671bbeae92a96bfd8485"
+    },
+    "ghcr.io/devcontainers-extra/features/drone-cli:1": {
+      "version": "1.0.7",
+      "resolved": "ghcr.io/devcontainers-extra/features/drone-cli@sha256:0d0997e223d20039b369175d2b5a989ddabdaaa3f753e163987de0c0f1648f7f",
+      "integrity": "sha256:0d0997e223d20039b369175d2b5a989ddabdaaa3f753e163987de0c0f1648f7f"
+    },
+    "ghcr.io/devcontainers-extra/features/gh-cli:1": {
+      "version": "1.0.12",
+      "resolved": "ghcr.io/devcontainers-extra/features/gh-cli@sha256:b87994e6212c3288f585136bf3b25bd208738fd1398095c380cdd763754adf8c",
+      "integrity": "sha256:b87994e6212c3288f585136bf3b25bd208738fd1398095c380cdd763754adf8c"
+    },
+    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {
+      "version": "0.0.3",
+      "resolved": "ghcr.io/stuartleeks/dev-container-features/shell-history@sha256:6caee1863304394cbd58f815757a55bce3f9150a4396ca8e2703683367e919ac",
+      "integrity": "sha256:6caee1863304394cbd58f815757a55bce3f9150a4396ca8e2703683367e919ac"
+    }
+  }
+}

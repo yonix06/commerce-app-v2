@@ -47,7 +47,7 @@ services:
 #    ports:
 #      - '5432:5432'
 #    volumes:
-#      - ./appdata/postgresql:/var/lib/postgresql/data:rwx
+#      - ./appdata/postgresql:/var/lib/postgresql:rwx
 #    networks:
 #      store:
 #        ipv4_address: 172.16.238.101
